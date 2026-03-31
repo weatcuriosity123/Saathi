@@ -1,5 +1,7 @@
 @import "tailwindcss";
+@config "../../tailwind.config.js";
 @import "./theme.css";
+
 
 * {
   box-sizing: border-box;

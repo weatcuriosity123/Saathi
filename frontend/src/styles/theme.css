@@ -1,7 +1,77 @@
 :root {
-  --color-primary: #4f46e5;
+  /* =========================
+     BRAND COLORS
+     ========================= */
+  --color-primary: #3525cd;
+  --color-primary-container: #4f46e5;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #dad7ff;
+
   --color-secondary: #10b981;
-  --color-accent: #f97316;
-  --color-bg: #f9fafb;
-  --color-text: #111827;
+  --color-secondary-container: #6ffbbe;
+  --color-on-secondary: #003828;
+  --color-on-secondary-container: #005c42;
+
+  --color-tertiary: #f97316;
+  --color-tertiary-container: #ffb084;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #5a1a00;
+
+  /* =========================
+     BACKGROUND & SURFACE SYSTEM
+     (No-Line Boundary Philosophy)
+     ========================= */
+  --color-background: #f8f9fa;
+  --color-on-background: #191c1d;
+
+  --color-surface: #f8f9fa;
+  --color-on-surface: #191c1d;
+  --color-surface-variant: #e1e3e4;
+  --color-on-surface-variant: #464555;
+
+  /* Surface Containers (Tonal Layering) */
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f3f4f5;
+  --color-surface-container: #f8fafc;
+  --color-surface-container-high: #e7e8e9;
+  --color-surface-container-highest: #e1e3e4;
+
+  /* =========================
+     GLASS / ELEVATION
+     ========================= */
+  --glass-background: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-blur: blur(20px);
+
+  /* Ambient Shadow (Floating Elements Only) */
+  --shadow-ambient: 0 20px 40px -10px rgba(77, 68, 227, 0.08);
+
+  /* =========================
+     OUTLINES (Ghost Borders)
+     ========================= */
+  --color-outline: rgba(119, 117, 135, 0.3);
+  --color-outline-variant: rgba(199, 196, 216, 0.15);
+
+  /* =========================
+     STATUS COLORS
+     ========================= */
+  --color-success: #10b981;
+  --color-success-container: #6ffbbe;
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+
+  /* =========================
+     TEXT & LEGACY
+     ========================= */
+  --color-text: #191c1d;
+  --color-bg: #f8f9fa;
+
+  /* =========================
+     GRADIENTS
+     ========================= */
+  --gradient-primary: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-primary-container)
+  );
 }
