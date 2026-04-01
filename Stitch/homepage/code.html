@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SAATHI | Affordable Learning for Every Student</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-fixed-variant": "#783200",
+              "secondary-fixed-dim": "#4edea3",
+              "on-background": "#191c1d",
+              "secondary-container": "#6cf8bb",
+              "primary": "#4F46E5",
+              "on-secondary-container": "#00714d",
+              "outline-variant": "#c7c4d8",
+              "on-tertiary": "#ffffff",
+              "background": "#f8f9fa",
+              "surface": "#ffffff",
+              "inverse-primary": "#c3c0ff",
+              "on-tertiary-fixed": "#341100",
+              "on-primary-container": "#dad7ff",
+              "secondary-fixed": "#6ffbbe",
+              "surface-variant": "#e1e3e4",
+              "inverse-on-surface": "#f0f1f2",
+              "on-surface-variant": "#464555",
+              "on-surface": "#111827",
+              "outline": "#777587",
+              "on-primary": "#ffffff",
+              "primary-fixed": "#e2dfff",
+              "inverse-surface": "#2e3132",
+              "surface-container-low": "#f3f4f5",
+              "error-container": "#ffdad6",
+              "primary-fixed-dim": "#c3c0ff",
+              "secondary": "#10B981",
+              "on-tertiary-container": "#ffd2bd",
+              "on-secondary": "#ffffff",
+              "tertiary-fixed": "#ffdbca",
+              "on-error-container": "#93000a",
+              "on-primary-fixed": "#001d35",
+              "on-secondary-fixed-variant": "#005236",
+              "on-error": "#ffffff",
+              "surface-container-high": "#e7e8e9",
+              "tertiary": "#7b3300",
+              "surface-container": "#f8fafc",
+              "on-primary-fixed-variant": "#3323cc",
+              "surface-container-highest": "#e1e3e4",
+              "surface-bright": "#f8f9fa",
+              "tertiary-container": "#a04500",
+              "surface-tint": "#4d44e3",
+              "surface-dim": "#d9dadb",
+              "primary-container": "#4f46e5",
+              "error": "#ba1a1a",
+              "on-secondary-fixed": "#002113",
+              "tertiary-fixed-dim": "#ffb690"
+            },
+            fontFamily: {
+              "headline": ["Manrope", "sans-serif"],
+              "body": ["Manrope", "sans-serif"],
+              "label": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "1rem", "2xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .nav-link-active {
+            color: #4f46e5;
+            font-weight: 700;
+            border-bottom: 2px solid #4f46e5;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<nav class="fixed top-0 w-full z-50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(79,70,229,0.08)]">
+<div class="flex justify-between items-center h-20 px-10 max-w-[1440px] mx-auto font-['Manrope'] antialiased tracking-tight">
+<div class="flex items-center gap-12">
+<span class="text-2xl font-black text-indigo-600 dark:text-indigo-400 tracking-tighter">SAATHI</span>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-indigo-600 dark:text-indigo-400 font-bold border-b-2 border-indigo-600 pb-1 hover:text-indigo-500 transition-colors duration-200" href="#">Platform</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-indigo-500 transition-colors duration-200" href="#">Solutions</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-indigo-500 transition-colors duration-200" href="#">Resources</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-indigo-500 transition-colors duration-200" href="#">Pricing</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-slate-600 dark:text-slate-400 font-semibold hover:text-indigo-500 transition-colors duration-200 active:scale-95 duration-150">Sign In</button>
+<button class="bg-indigo-600 text-white px-7 py-3 rounded-2xl font-bold text-sm shadow-lg shadow-indigo-200 hover:-translate-y-0.5 hover:bg-indigo-700 transition-all active:scale-95 duration-150">Get Started</button>
+</div>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative pt-24 pb-32 overflow-hidden bg-white">
+<div class="max-w-screen-2xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+<div class="lg:col-span-7 space-y-10 relative z-10">
+<div class="inline-flex items-center gap-2 bg-indigo-50 text-indigo-600 px-5 py-2 rounded-full border border-indigo-100">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-xs font-bold uppercase tracking-widest">Education for everyone</span>
+</div>
+<h1 class="font-headline text-7xl md:text-8xl font-extrabold text-[#111827] tracking-tight leading-[0.95]">
+                    Affordable Learning for <br/><span class="text-primary italic">Every Student</span>
+</h1>
+<p class="text-slate-600 text-xl leading-relaxed max-w-2xl font-medium">
+                    Access world-class education from verified experts starting at just ₹100. High-quality modules designed for the next generation of achievers.
+                </p>
+<div class="flex flex-wrap gap-6 pt-4">
+<button class="bg-[#4F46E5] text-white px-10 py-5 rounded-2xl font-bold text-lg flex items-center gap-3 hover:-translate-y-1 hover:shadow-2xl hover:shadow-indigo-200 transition-all active:scale-95">
+                        Start Learning
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="bg-slate-100 text-[#111827] px-10 py-5 rounded-2xl font-bold text-lg hover:-translate-y-1 hover:bg-slate-200 transition-all active:scale-95">
+                        View All Courses
+                    </button>
+</div>
+<div class="flex items-center gap-6 pt-6">
+<div class="flex -space-x-3">
+<img alt="Student avatar" class="w-12 h-12 rounded-full border-4 border-white object-cover shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBknIAIXqICFovUdqAM1IaPcMjXJGFljpu1PLcBcCIC_33jwT0f7rk_pHsNO2P03X4WEg4TULcc_Ka5aiooVhjDflaNw2puzzgMg13kQoNrI1vSnbxS8_DVrOWBCNbOBvgpVWn973hcLR9STPX5rxz-bL3AhlGSBvvB-wgkD1LDdECKhr-qBLyN6oD2iF-_49SCK4kR6_Gj53akDiakEZeQ-kCAUqVvY4kLPjE4SxdFmj6xhVm6d4zLDzR-omNmyxIpPiGelgmCKw"/>
+<img alt="Student avatar" class="w-12 h-12 rounded-full border-4 border-white object-cover shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBO9iTOSIWHL1z1b8Z0MJwpw2_ir4o09_7Zeoa8OxMNU5WGL58gZwh26KUQYR82rZcuPEf6UB8c39urX7et_YEBDTgjLG2wrwBmEH47aOQeGATEQt8q6GuAiSbwozQSaQNkwTmhNZWCK6H5fLkw41d0QoXu_23MIEd6irxlS1wjurN1rUBLIMCqMS4cqvUNue8JSEs5WO9eGq_eGO9_EfevjTi6Rali8XyfGANdYof44iO0RCGc6i_S1y0H-0DrgwktZ8mrIgTGefs"/>
+<img alt="Student avatar" class="w-12 h-12 rounded-full border-4 border-white object-cover shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBw3c2hY0xSU85p74_2cLrBkzC9OSz5F3__eHyclV2qQZKxL54FOnGbdtxfmBnDyVcCaOyCUiGnoRLL5dIQEUUNsYU7TLd71zS5F2cyA__-WpTJ8YcP7oniTmOz6KZ1YFzWL8h05XOu3Is_112pYtldp-QVCbRBuhISu6QImjoh9KN3dN4nmIBu-PPi4pkFoHTV-bCFTnArx0g6lXSqiPLL5Jn1lh119bqf2J8JRk9nHq2GGO0gsXyAyahKAumRjW4Wzl1fYyRzXGk"/>
+</div>
+<p class="text-sm text-slate-500 font-semibold">
+                        Joined by <span class="text-[#111827] font-extrabold">12,000+</span> students this month
+                    </p>
+</div>
+</div>
+<div class="lg:col-span-5 relative">
+<div class="relative z-10 p-4 rounded-[2rem] bg-gradient-to-br from-indigo-50 to-white shadow-2xl rotate-2 border border-indigo-100/50">
+<img alt="Platform dashboard" class="rounded-2xl w-full aspect-[4/3] object-cover shadow-inner" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiZ7tPqxL--XIxXqlmnfO7p94u6SYM1j_8DwLSiNqj9FzbWx_pV0iXk5934iaZSwI89PVrWhaUaQR3-kn6PfXP4FA1cwB2tcj-1K_rOQJzOgd9fDli27gl5PVmREQ_6j7UAIZHX5O1ro9IAgsyFSf7RD47-bMYO1Es2puiP8cttSyqY0r7ZWifRu0ko156HesV0a4wom4nJE9SOhFk0b6Hh1PfBqfMVCBh-WF23iLdHZOBT4HlknqiHbBK6uxNMfFezDjS4rcRlbg"/>
+<div class="absolute -bottom-8 -left-8 bg-indigo-600 text-white p-7 rounded-3xl shadow-2xl -rotate-6 border-4 border-white">
+<p class="text-4xl font-black">₹100</p>
+<p class="text-[10px] font-bold uppercase tracking-[0.2em] opacity-80 leading-none">Starting Price</p>
+</div>
+</div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-indigo-600/5 rounded-full blur-[120px] -z-10"></div>
+</div>
+</div>
+</section>
+<!-- Featured Courses -->
+<section class="py-32 bg-slate-50/50">
+<div class="max-w-screen-2xl mx-auto px-8">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
+<div class="max-w-2xl space-y-6">
+<h2 class="font-headline text-5xl font-extrabold tracking-tight text-[#111827]">Featured Courses</h2>
+<p class="text-slate-600 text-xl font-medium">Pick up a new skill today from our top-rated collections. Affordable prices, high-quality content.</p>
+</div>
+<a class="text-indigo-600 font-bold text-lg flex items-center gap-3 group px-6 py-3 bg-white rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all" href="#">
+                    Explore all courses
+                    <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+<!-- Course Card 1 -->
+<div class="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 group border border-slate-100">
+<div class="relative h-56 overflow-hidden">
+<img alt="UI Design Course" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTNEgHwzjInl9-hKdq8IMsRRqEtYGZab4CmwK8cW4KLB_EsS2kV_sCypnBcoAdL3N4df0faOfWO0bZFIMQ6qFA6ogSl2lmzgcKwILJoJc66jEs_2oz1xlH9ACdiDZmgzMc7YL0Y6h1ajx29upIw2dPbH4jKeOkbzWPr-msURg91NNmv1XOSaDPV8qPD7SsMXSvDw2eL6GukoBDGRpzS_Ah1YnLBuvntXhx9acUBRdk068zmIw_yLBtJkLrQfk_9iDXBX29IBJbVzw"/>
+<div class="absolute top-5 left-5 bg-white/95 backdrop-blur-md px-4 py-1.5 rounded-full text-[11px] font-black uppercase tracking-widest text-indigo-600 shadow-sm">Best Seller</div>
+</div>
+<div class="p-8 space-y-6">
+<div class="space-y-3">
+<div class="flex justify-between items-start">
+<h3 class="font-bold text-xl leading-tight text-[#111827] group-hover:text-indigo-600 transition-colors">UI/UX Design Fundamentals</h3>
+</div>
+<div class="flex items-center gap-2 text-amber-500">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-black text-slate-700">4.9 (12.4k)</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<img alt="Instructor" class="w-8 h-8 rounded-full object-cover ring-2 ring-indigo-50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkrY4ZRC8xBB_AjsDyngB6-N-6XgVy2xFTXTTfna6TamWJsgyvg9M0hcHKxRyx4HEoihuw4c_cwcEFOzM3HftAbIVfeHkQEKlT0qs6XG_L3V0HnKbHlqJ242YBj7rsTcC-gw5lodZqJ_Grc2dD7baQUYgalL7YbzhFdajW_EKgtM4HSwkUn4p6p4TUDVIh3imQQLWKFHDd_KdbH0KRJr-Q7vQOtlQItfKWuAdVNifzviLveqwYAbgTmVGWtWEf4e6Ci8muP2xfIXQ"/>
+<span class="text-sm text-slate-500 font-semibold">Sarah Jenkins</span>
+</div>
+<div class="pt-4 flex items-center justify-between border-t border-slate-50">
+<span class="text-3xl font-black text-[#111827]">₹149</span>
+<button class="bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white p-3 rounded-2xl transition-all active:scale-90">
+<span class="material-symbols-outlined text-2xl">shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Course Card 2 -->
+<div class="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 group border border-slate-100">
+<div class="relative h-56 overflow-hidden">
+<img alt="Python Course" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgGTnVzIcW-_QBx9Eo7xCWuLqUB-Heitsa_MDiZFF8djHhNZiQOpNTce-HWjgZQQHYHtsRetFBA3xvoAb_0JXfz60y-nNFo9oO44wj8ZwtwyFQps7wC_C3_hRdrsLrayWI49Ljvbsg85AMia68x6ADSh2fuP2Dm1yPRu231ZTaKm1NHRbWh_yhC0HE-h73nPGICbld73O3r8eTxslAZIRl2-EOSoFAaEfEAbzVIagtvIkfS_LTRrZWMPrxJGAZAisjYqnA5OVTNLY"/>
+<div class="absolute top-5 left-5 bg-[#10B981] text-white px-4 py-1.5 rounded-full text-[11px] font-black uppercase tracking-widest shadow-sm">Trending</div>
+</div>
+<div class="p-8 space-y-6">
+<div class="space-y-3">
+<div class="flex justify-between items-start">
+<h3 class="font-bold text-xl leading-tight text-[#111827] group-hover:text-indigo-600 transition-colors">Python for Data Science 2024</h3>
+</div>
+<div class="flex items-center gap-2 text-amber-500">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-black text-slate-700">4.8 (8.1k)</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<img alt="Instructor" class="w-8 h-8 rounded-full object-cover ring-2 ring-indigo-50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAm15u-LjNvRkDo8ti3Gx_MSDRnjmAXeV8mV_bBgq5A2bJXOPnO8MZAKIRHKarYMQiCWeeDuaYl5vFBTDOT1Df4SMGt2hIOga6mzIMdVDFEa5wejItrFyFIuUYvHhhyhf-egG_9nZU-po4etKw3K4nMUgADd5lUoktvYeefgKn0jtafmqa11IcQp4xyZpU4i2-bTzPA_nGjqVXjFaHporD728yEYIMawltAB7bnJg_aX5ZO68mfsZ9_FmhbbwzHAlG1wPhzA77eq7Q"/>
+<span class="text-sm text-slate-500 font-semibold">Rahul Sharma</span>
+</div>
+<div class="pt-4 flex items-center justify-between border-t border-slate-50">
+<span class="text-3xl font-black text-[#111827]">₹199</span>
+<button class="bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white p-3 rounded-2xl transition-all active:scale-90">
+<span class="material-symbols-outlined text-2xl">shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Course Card 3 -->
+<div class="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 group border border-slate-100">
+<div class="relative h-56 overflow-hidden">
+<img alt="Social Media Course" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxxfdY2cg8JDjphj98D-tp1mDHzxsFIaVQMaTGFsOXLAP0DmklXRBSZO2dRc7jdSE7Ddag6w-xpdbfrplwEjeRifK90BCu8hI5S3MFsjimuqB3h_m7g1tew-2kGg8PC6L_TfDknD3aVrlq8--SgEGNtTXDGfCTPfjIQNzP_nrzMlOYIpnW8iDMhm3xvRw9uQIlYwToyqnBjunmhGnJGC5k2aIwIFCEI32cXQ_FzzI4Q5vqapu8YfZpZW_9rnMKPVTvhfIwhkwOjNo"/>
+</div>
+<div class="p-8 space-y-6">
+<div class="space-y-3">
+<div class="flex justify-between items-start">
+<h3 class="font-bold text-xl leading-tight text-[#111827] group-hover:text-indigo-600 transition-colors">Social Media Mastery</h3>
+</div>
+<div class="flex items-center gap-2 text-amber-500">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-black text-slate-700">4.7 (5.2k)</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<img alt="Instructor" class="w-8 h-8 rounded-full object-cover ring-2 ring-indigo-50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3ZpGjfX8O4Aj3L2XqPejaF4e_sifJSZGonYFkX4CNoJJP_vOt4NOobz_5Aw-olSmskZE6DMyWo2Wc1KjNvilhAQvrAkzMXBNP5S__NbaQorJaPHAXxyv0RyzoP32O_SJuI0sfbfWkwfqjp7N-RbnfoYqXouwEdX1qSxAYUSkJsNE50q_dxvjJAxABPExdhq7DPc7USu2g4KK2F5Cs5jnCCgkMz76R7r4Q4NgPlKYLUBQxU-AQqFWpBMD9BueHdy94bQGhU_37Qu0"/>
+<span class="text-sm text-slate-500 font-semibold">David Miller</span>
+</div>
+<div class="pt-4 flex items-center justify-between border-t border-slate-50">
+<span class="text-3xl font-black text-[#111827]">₹100</span>
+<button class="bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white p-3 rounded-2xl transition-all active:scale-90">
+<span class="material-symbols-outlined text-2xl">shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Course Card 4 -->
+<div class="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 group border border-slate-100">
+<div class="relative h-56 overflow-hidden">
+<img alt="Finance Course" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjj-49F5Q2-EFktZQAiIokAE1fPdrOZSnGdtqUL21zJQD246byui6Y2g3ZYbQANBafOrsnLFtEBGSYePj1Yv3HmTXC2FbZFULaZhx7qtgosgEXawhMOOouNUfSruc9UL5EToLcpZ1LoO1XUlQR2SmxGh50reeSaiXf1kdcf9FMU55kQ0jVoFpdiMjOD0uXVgXZ4DtNLt7r3qOwSC3LEGbNiWH6yXCCUNvFUL93Z8AJsey6pf5LWHe6B5q2dvux1j2LMqaov3gw4MQ"/>
+</div>
+<div class="p-8 space-y-6">
+<div class="space-y-3">
+<div class="flex justify-between items-start">
+<h3 class="font-bold text-xl leading-tight text-[#111827] group-hover:text-indigo-600 transition-colors">Financial Literacy for Gen Z</h3>
+</div>
+<div class="flex items-center gap-2 text-amber-500">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-black text-slate-700">4.9 (2.1k)</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<img alt="Instructor" class="w-8 h-8 rounded-full object-cover ring-2 ring-indigo-50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCz8Yu3p8P1bz9Wl4vd9DIpEdkiBOS2AhyPgSYlmygsuoyHV4orqlNl2oYO4ZclnlQCiRQsKSd4acvLvgv0BAOFhP6J5Vl_zSTUe1gP_48XtJiM_7iexDogu7qceR_INxAgasNbjvE_gy2j1yAZLAe34aFM6rsXjAdtIr5n1vY1M_-M25MVGnGhh4_CQ71iw8LqCc8D9ZzchzClb_7-cydayHAE5THiSglt74vg_G5i9Cbq1UAxmctpkIMtszbVu6Rp0STMPUl9KP0"/>
+<span class="text-sm text-slate-500 font-semibold">Dr. Anjali Rao</span>
+</div>
+<div class="pt-4 flex items-center justify-between border-t border-slate-50">
+<span class="text-3xl font-black text-[#111827]">₹120</span>
+<button class="bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white p-3 rounded-2xl transition-all active:scale-90">
+<span class="material-symbols-outlined text-2xl">shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Why SAATHI -->
+<section class="py-32 bg-white">
+<div class="max-w-screen-2xl mx-auto px-8">
+<div class="text-center mb-24 max-w-3xl mx-auto space-y-6">
+<h2 class="font-headline text-5xl font-extrabold tracking-tight text-[#111827]">Why SAATHI?</h2>
+<p class="text-slate-600 text-xl font-medium">We're reimagining education by removing the price barrier while maintaining world-class quality through verified mentorship.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+<div class="p-12 rounded-[2.5rem] bg-emerald-50/50 space-y-8 flex flex-col items-center text-center group hover:bg-emerald-50 transition-colors">
+<div class="w-20 h-20 bg-white shadow-xl shadow-emerald-100 text-[#10B981] flex items-center justify-center rounded-3xl group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl">payments</span>
+</div>
+<div class="space-y-4">
+<h3 class="text-2xl font-extrabold font-headline text-[#111827]">True Affordability</h3>
+<p class="text-slate-600 leading-relaxed font-medium">No subscriptions, no hidden fees. Buy only what you need, with courses starting lower than the price of a coffee.</p>
+</div>
+</div>
+<div class="p-12 rounded-[2.5rem] bg-indigo-50/50 space-y-8 flex flex-col items-center text-center group hover:bg-indigo-50 transition-colors">
+<div class="w-20 h-20 bg-white shadow-xl shadow-indigo-100 text-indigo-600 flex items-center justify-center rounded-3xl group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl">verified_user</span>
+</div>
+<div class="space-y-4">
+<h3 class="text-2xl font-extrabold font-headline text-[#111827]">Verified Tutors</h3>
+<p class="text-slate-600 leading-relaxed font-medium">Every instructor undergoes a rigorous verification process to ensure you learn from real-world experts and academicians.</p>
+</div>
+</div>
+<div class="p-12 rounded-[2.5rem] bg-amber-50/50 space-y-8 flex flex-col items-center text-center group hover:bg-amber-50 transition-colors">
+<div class="w-20 h-20 bg-white shadow-xl shadow-amber-100 text-amber-500 flex items-center justify-center rounded-3xl group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl">schedule</span>
+</div>
+<div class="space-y-4">
+<h3 class="text-2xl font-extrabold font-headline text-[#111827]">Total Flexibility</h3>
+<p class="text-slate-600 leading-relaxed font-medium">Learn at your own pace. Once purchased, the content is yours forever. Study on mobile, tablet, or web.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- How it works -->
+<section class="py-32 bg-slate-50/30">
+<div class="max-w-screen-2xl mx-auto px-8">
+<div class="text-center mb-24">
+<h2 class="font-headline text-5xl font-extrabold tracking-tight text-[#111827]">How it works</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-16 relative">
+<!-- Dotted line connectors (hidden on mobile) -->
+<div class="hidden md:block absolute top-16 left-1/4 right-1/4 h-[2px] border-t-2 border-dashed border-slate-200 -z-0"></div>
+<div class="relative p-10 text-center space-y-6 group z-10 bg-white rounded-3xl shadow-sm border border-slate-100">
+<div class="w-16 h-16 bg-indigo-600 text-white rounded-2xl flex items-center justify-center font-black text-2xl mx-auto mb-4 shadow-lg shadow-indigo-100 group-hover:-translate-y-2 transition-transform">1</div>
+<h4 class="text-2xl font-extrabold text-[#111827]">Discover</h4>
+<p class="text-slate-600 text-lg font-medium leading-relaxed">Browse our library of high-impact courses across any category using intelligent search.</p>
+</div>
+<div class="relative p-10 text-center space-y-6 group z-10 bg-white rounded-3xl shadow-sm border border-slate-100">
+<div class="w-16 h-16 bg-indigo-600 text-white rounded-2xl flex items-center justify-center font-black text-2xl mx-auto mb-4 shadow-lg shadow-indigo-100 group-hover:-translate-y-2 transition-transform">2</div>
+<h4 class="text-2xl font-extrabold text-[#111827]">Enroll</h4>
+<p class="text-slate-600 text-lg font-medium leading-relaxed">Pay a one-time minimal fee and get lifetime access immediately to all materials.</p>
+</div>
+<div class="relative p-10 text-center space-y-6 group z-10 bg-white rounded-3xl shadow-sm border border-slate-100">
+<div class="w-16 h-16 bg-indigo-600 text-white rounded-2xl flex items-center justify-center font-black text-2xl mx-auto mb-4 shadow-lg shadow-indigo-100 group-hover:-translate-y-2 transition-transform">3</div>
+<h4 class="text-2xl font-extrabold text-[#111827]">Achieve</h4>
+<p class="text-slate-600 text-lg font-medium leading-relaxed">Learn from experts, earn your certificate, and level up your career with proof of skills.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Student Success Stories -->
+<section class="py-32 bg-white">
+<div class="max-w-screen-2xl mx-auto px-8">
+<div class="text-center mb-24">
+<h2 class="font-headline text-5xl font-extrabold tracking-tight text-[#111827]">Student Success Stories</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="bg-slate-50/50 p-12 rounded-[2.5rem] space-y-8 border border-slate-100 hover:shadow-2xl hover:bg-white transition-all duration-500">
+<div class="flex gap-1 text-amber-500">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-[#111827] italic text-xl leading-relaxed font-medium">"I couldn't afford expensive bootcamps, but SAATHI gave me the exact same knowledge for just ₹199. I just landed my first dev job!"</p>
+<div class="flex items-center gap-5 pt-4">
+<img alt="Arjun Patel" class="w-14 h-14 rounded-full object-cover border-4 border-white shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWzqUKaByrRsK5ahT6zwJrML9qIl4HFw5WhDlxoDsDVyh75qYYlQ2N_Z1DeKjlwvey_yJ4uXqaHvkOr4Pt1OMqpbxXyuu72R7fxyp-t_TAUqW6ELO4z22Ccy0MkovyVV8qmiqd5IWAtMGzggYTVOIrFLR94nETK9c6wqXW37xw4Tw5-PryGmzW8hXKBvKnxQqeFwv1NPKyQz-LuV9H5A0CKeEedhRiP7-N-zzH0XaWAhCoYWNyTAs6TwrGUPRKDXT-rcRkvAcsDks"/>
+<div>
+<p class="font-black text-[#111827]">Arjun Patel</p>
+<p class="text-xs text-slate-500 font-bold uppercase tracking-widest">Front-end Developer</p>
+</div>
+</div>
+</div>
+<div class="bg-slate-50/50 p-12 rounded-[2.5rem] space-y-8 border border-slate-100 hover:shadow-2xl hover:bg-white transition-all duration-500">
+<div class="flex gap-1 text-amber-500">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-[#111827] italic text-xl leading-relaxed font-medium">"The quality of the instructors is insane. They actually care about your progress and the community is very supportive."</p>
+<div class="flex items-center gap-5 pt-4">
+<img alt="Meera Singh" class="w-14 h-14 rounded-full object-cover border-4 border-white shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCJ1OoVvPnajDtytyHmJZ275lNjkEWvrU57QT12IKV8u0LS0PrkxD8vXgMAcWln-3WEUhBHb8HY8nRUXEqZSIRRLjj3i64JidTol6U_6tpkFMFB3B-vHkTuL1E7-fimpzTaR9YDbyMn9CJeTsY-IegPbRVvhQQOMLqgYiS1kBR_a6vF8SJ_TeTosDu9PfSdNhu48ZJu9BfapHhzLWodQZ1SDbvTYF8LMW5GLq31xiN3FjcHDX3cRW3hDRwTs-VLHxS-Kr_nw0U7-8"/>
+<div>
+<p class="font-black text-[#111827]">Meera Singh</p>
+<p class="text-xs text-slate-500 font-bold uppercase tracking-widest">Marketing Associate</p>
+</div>
+</div>
+</div>
+<div class="bg-slate-50/50 p-12 rounded-[2.5rem] space-y-8 border border-slate-100 hover:shadow-2xl hover:bg-white transition-all duration-500">
+<div class="flex gap-1 text-amber-500">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-[#111827] italic text-xl leading-relaxed font-medium">"Verified tutors make such a difference. You know you're not just watching a random video, but learning from a master."</p>
+<div class="flex items-center gap-5 pt-4">
+<img alt="Karthik R." class="w-14 h-14 rounded-full object-cover border-4 border-white shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-vJejJESNViO4uAUJXYdjHOIeyFTm3piR2jtGeaxFARNyGoKxaF9uDzwVNZ17Uub6z9AymzExkDxNGiBKFZkMa9wU0IpITXTNg3Bk0cokLJODSN_Q6r6lCXEdBMaZG6JlWguGROr4JKbBr7k_4OAUiHIL9R3MSWLB_cnhxFPREN7ZedFhboaiS81HR5fT6Rf3AXF5iuF-TUHiX42Wi3h7uJuqNL2iTtu4Q1WuX5fLL9MG5i5Vu6Z6gdvq0hImMIhWM45Tg89h7WI"/>
+<div>
+<p class="font-black text-[#111827]">Karthik R.</p>
+<p class="text-xs text-slate-500 font-bold uppercase tracking-widest">Business Analyst</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-24 bg-white">
+<div class="max-w-screen-2xl mx-auto px-8">
+<div class="bg-indigo-600 rounded-[3rem] p-16 md:p-24 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-16 shadow-2xl">
+<div class="relative z-10 max-w-2xl text-white space-y-10">
+<h2 class="font-headline text-5xl md:text-7xl font-extrabold leading-tight tracking-tight">Ready to unlock your potential?</h2>
+<p class="text-indigo-100 text-xl font-medium leading-relaxed">Join 500,000+ students already learning on the SAATHI platform. No credit card required to browse our premium catalog.</p>
+<div class="flex flex-wrap gap-6">
+<button class="bg-white text-indigo-600 px-12 py-5 rounded-[1.25rem] font-black text-lg hover:shadow-2xl hover:scale-105 transition-all active:scale-95">Create Free Account</button>
+<button class="border-2 border-white/30 text-white px-12 py-5 rounded-[1.25rem] font-black text-lg hover:bg-white/10 transition-all active:scale-95">Browse Catalog</button>
+</div>
+</div>
+<div class="relative z-10 w-full md:w-auto">
+<div class="grid grid-cols-2 gap-6">
+<div class="space-y-6">
+<div class="bg-white/10 backdrop-blur-xl p-8 rounded-3xl border border-white/20 shadow-xl">
+<p class="text-white font-black text-4xl mb-1">98%</p>
+<p class="text-indigo-100/60 text-xs font-bold uppercase tracking-[0.2em]">Success Rate</p>
+</div>
+<div class="bg-white/10 backdrop-blur-xl p-8 rounded-3xl border border-white/20 shadow-xl">
+<p class="text-white font-black text-4xl mb-1">500+</p>
+<p class="text-indigo-100/60 text-xs font-bold uppercase tracking-[0.2em]">Expert Tutors</p>
+</div>
+</div>
+<div class="space-y-6 translate-y-10">
+<div class="bg-white/10 backdrop-blur-xl p-8 rounded-3xl border border-white/20 shadow-xl">
+<p class="text-white font-black text-4xl mb-1">1k+</p>
+<p class="text-indigo-100/60 text-xs font-bold uppercase tracking-[0.2em]">Courses</p>
+</div>
+<div class="bg-white/10 backdrop-blur-xl p-8 rounded-3xl border border-white/20 shadow-xl">
+<p class="text-white font-black text-4xl mb-1">24/7</p>
+<p class="text-indigo-100/60 text-xs font-bold uppercase tracking-[0.2em]">Support</p>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-400/20 blur-[120px] rounded-full -z-0 translate-x-1/2 -translate-y-1/2"></div>
+<div class="absolute bottom-0 left-0 w-[300px] h-[300px] bg-white/5 blur-[80px] rounded-full -z-0 -translate-x-1/2 translate-y-1/2"></div>
+</div>
+</div>
+</section>
+</main>
+<footer class="w-full border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 font-['Manrope'] text-[#111827] dark:text-slate-200 text-sm">
+<div class="py-12 px-10 flex flex-col md:flex-row justify-between items-center max-w-[1440px] mx-auto gap-12">
+<div class="flex flex-col items-center md:items-start gap-5">
+<span class="text-2xl font-black text-indigo-600 tracking-tighter">SAATHI</span>
+<p class="max-w-xs text-center md:text-left text-slate-500 font-medium leading-relaxed">© 2024 SAATHI. Built for the Editorial Architect. Empowering learners everywhere.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-10">
+<a class="text-slate-500 hover:text-indigo-600 hover:underline underline-offset-4 transition-colors font-semibold" href="#">Privacy Policy</a>
+<a class="text-slate-500 hover:text-indigo-600 hover:underline underline-offset-4 transition-colors font-semibold" href="#">Terms of Service</a>
+<a class="text-slate-500 hover:text-indigo-600 hover:underline underline-offset-4 transition-colors font-semibold" href="#">Security</a>
+<a class="text-slate-500 hover:text-indigo-600 hover:underline underline-offset-4 transition-colors font-semibold" href="#">Status</a>
+</div>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-indigo-600 transition-all p-2 bg-slate-50 rounded-xl">language</span>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-indigo-600 transition-all p-2 bg-slate-50 rounded-xl">share</span>
+</div>
+</div>
+</footer>
+</body></html>
