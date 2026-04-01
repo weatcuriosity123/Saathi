@@ -1,21 +1,26 @@
-import PageTemplate from "@/components/shared/PageTemplate";
-import Badge from "@/components/ui/Badge";
+import CourseHero from "@/components/courses/detail/CourseHero";
+import CourseCurriculum from "@/components/courses/detail/CourseCurriculum";
+import InstructorCard from "@/components/courses/detail/InstructorCard";
+import CourseReviews from "@/components/courses/detail/CourseReviews";
+import CourseSidebar from "@/components/courses/detail/CourseSidebar";
 
 export default function CourseDetailPage({ params }) {
   return (
-    <div className="space-y-6">
-      <div className="flex items-center gap-3">
-        <h1 className="text-3xl font-bold text-text">Course Detail</h1>
-        <Badge tone="accent">{params.courseId}</Badge>
+    <main className="max-w-[1440px] mx-auto px-6 md:px-10 pt-32 pb-20">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+        {/* Left Column: Course Details */}
+        <div className="lg:col-span-8 flex flex-col gap-20">
+          <CourseHero courseId={params.courseId} />
+          <CourseCurriculum />
+          <InstructorCard />
+          <CourseReviews />
+        </div>
+
+        {/* Right Column: Sticky Sidebar */}
+        <div className="lg:col-span-4">
+          <CourseSidebar />
+        </div>
       </div>
-      <PageTemplate
-        title="Course Overview"
-        description="Detailed curriculum, tutor info, and enrollment details"
-        sections={[
-          { title: "Curriculum", content: "Module-wise breakdown and outcomes." },
-          { title: "Tutor", content: "Instructor profile and expertise summary." },
-        ]}
-      />
-    </div>
+    </main>
   );
 }
