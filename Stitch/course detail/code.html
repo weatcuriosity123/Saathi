@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SAATHI - Course Details</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-fixed-variant": "#783200",
+              "secondary-fixed-dim": "#4edea3",
+              "on-background": "#191c1d",
+              "secondary-container": "#6cf8bb",
+              "primary": "#3525cd",
+              "on-secondary-container": "#00714d",
+              "outline-variant": "#c7c4d8",
+              "on-tertiary": "#ffffff",
+              "background": "#f8f9fa",
+              "surface": "#f8f9fa",
+              "inverse-primary": "#c3c0ff",
+              "on-tertiary-fixed": "#341100",
+              "on-primary-container": "#dad7ff",
+              "secondary-fixed": "#6ffbbe",
+              "surface-variant": "#e1e3e4",
+              "inverse-on-surface": "#f0f1f2",
+              "on-surface-variant": "#464555",
+              "on-surface": "#191c1d",
+              "outline": "#777587",
+              "on-primary": "#ffffff",
+              "primary-fixed": "#e2dfff",
+              "inverse-surface": "#2e3132",
+              "surface-container-low": "#f3f4f5",
+              "error-container": "#ffdad6",
+              "primary-fixed-dim": "#c3c0ff",
+              "secondary": "#006c49",
+              "on-tertiary-container": "#ffd2bd",
+              "on-secondary": "#ffffff",
+              "tertiary-fixed": "#ffdbca",
+              "on-error-container": "#93000a",
+              "on-primary-fixed": "#0f0069",
+              "on-secondary-fixed-variant": "#005236",
+              "on-error": "#ffffff",
+              "surface-container-high": "#e7e8e9",
+              "tertiary": "#7b3300",
+              "surface-container": "#edeeef",
+              "on-primary-fixed-variant": "#3323cc",
+              "surface-container-highest": "#e1e3e4",
+              "surface-bright": "#f8f9fa",
+              "tertiary-container": "#a04500",
+              "surface-tint": "#4d44e3",
+              "surface-dim": "#d9dadb",
+              "primary-container": "#4f46e5",
+              "error": "#ba1a1a",
+              "on-secondary-fixed": "#002113",
+              "tertiary-fixed-dim": "#ffb690"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .cta-gradient {
+            background: linear-gradient(135deg, #3525cd 0%, #4f46e5 100%);
+        }
+        .orange-cta-gradient {
+            background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-background antialiased">
+<!-- Shared Top Navigation Bar Component -->
+<nav class="bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl fixed top-0 w-full z-50 shadow-[0_8px_32px_0_rgba(79,70,229,0.08)]">
+<div class="flex justify-between items-center h-20 px-10 max-w-[1440px] mx-auto font-['Manrope'] antialiased tracking-tight">
+<div class="flex items-center gap-12">
+<span class="text-2xl font-black text-indigo-600 dark:text-indigo-400 tracking-tighter">SAATHI</span>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-indigo-600 dark:text-indigo-400 font-bold border-b-2 border-indigo-600 pb-1" href="#">Platform</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-indigo-500 transition-colors duration-200" href="#">Solutions</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-indigo-500 transition-colors duration-200" href="#">Resources</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-indigo-500 transition-colors duration-200" href="#">Pricing</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-5 py-2 text-indigo-600 dark:text-indigo-400 font-medium hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all active:scale-95 duration-150">Sign In</button>
+<button class="px-6 py-2.5 bg-indigo-600 text-white font-bold rounded-xl shadow-sm hover:bg-indigo-700 transition-all active:scale-95 duration-150">Get Started</button>
+</div>
+</div>
+</nav>
+<main class="max-w-screen-2xl mx-auto px-8 pt-32 pb-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Left Column: Course Details -->
+<div class="lg:col-span-8 flex flex-col gap-16">
+<!-- Hero Section -->
+<section class="flex flex-col gap-8">
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container text-[10px] font-bold rounded-full uppercase tracking-[0.1em]">Bestseller</span>
+<span class="px-3 py-1 bg-primary-fixed text-on-primary-fixed text-[10px] font-bold rounded-full uppercase tracking-[0.1em]">Design Strategy</span>
+</div>
+<div class="flex flex-col gap-4">
+<h1 class="font-headline text-5xl font-extrabold text-on-surface leading-[1.1] tracking-tight">
+                        Mastering Neural Interface Design:<br/>The Future of Human-AI Synergy
+                    </h1>
+<p class="text-xl text-on-surface-variant max-w-2xl leading-relaxed">
+                        Transition from traditional UX to neuro-centric design. Learn how to architect seamless cognitive flows between digital systems and the human mind using modern interface paradigms.
+                    </p>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-on-surface">4.9</span>
+<span class="text-on-surface-variant text-sm">(2,450 ratings)</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-xl">group</span>
+<span class="text-sm font-medium">12,403 students enrolled</span>
+</div>
+</div>
+</section>
+<!-- Course Curriculum -->
+<section class="flex flex-col gap-8">
+<h2 class="font-headline text-3xl font-bold">Course Curriculum</h2>
+<div class="flex flex-col gap-4">
+<!-- Module 1 -->
+<div class="border border-outline-variant/30 rounded-2xl overflow-hidden bg-white dark:bg-slate-900 shadow-sm transition-all hover:shadow-md">
+<div class="p-6 flex justify-between items-center cursor-pointer bg-surface-container-low/50">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">keyboard_arrow_down</span>
+<div>
+<h3 class="font-bold text-lg">Module 1: Foundations of Neuro-Interfaces</h3>
+<p class="text-xs text-on-surface-variant font-medium mt-0.5">4 Lessons • 45 mins</p>
+</div>
+</div>
+</div>
+<div class="p-6 flex flex-col gap-6 bg-white dark:bg-slate-900 border-t border-outline-variant/20">
+<div class="flex justify-between items-center group cursor-pointer">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+<span class="text-on-surface text-sm font-medium group-hover:text-primary transition-colors">Introduction to Neuralink &amp; Competitors</span>
+</div>
+<span class="text-xs font-mono text-on-surface-variant bg-surface-container rounded px-2 py-1">12:30</span>
+</div>
+<div class="flex justify-between items-center group cursor-pointer opacity-80">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant">lock</span>
+<span class="text-on-surface text-sm font-medium">Anatomy of the Visual Cortex</span>
+</div>
+<span class="text-xs font-mono text-on-surface-variant bg-surface-container rounded px-2 py-1">15:45</span>
+</div>
+</div>
+</div>
+<!-- Module 2 -->
+<div class="border border-outline-variant/30 rounded-2xl overflow-hidden bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-all">
+<div class="p-6 flex justify-between items-center cursor-pointer">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant p-2">keyboard_arrow_right</span>
+<div>
+<h3 class="font-bold text-lg">Module 2: Cognitive Load Management</h3>
+<p class="text-xs text-on-surface-variant font-medium mt-0.5">6 Lessons • 1h 20m</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Module 3 -->
+<div class="border border-outline-variant/30 rounded-2xl overflow-hidden bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-all">
+<div class="p-6 flex justify-between items-center cursor-pointer">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant p-2">keyboard_arrow_right</span>
+<div>
+<h3 class="font-bold text-lg">Module 3: Prototyping for Thought-Based UI</h3>
+<p class="text-xs text-on-surface-variant font-medium mt-0.5">8 Lessons • 2h 15m</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Tutor Info Card -->
+<section class="bg-indigo-50/50 dark:bg-indigo-900/10 p-12 rounded-3xl flex flex-col md:flex-row gap-10 items-start border border-indigo-100 dark:border-indigo-800/30">
+<div class="w-32 h-32 rounded-2xl overflow-hidden flex-shrink-0 shadow-lg border-2 border-white dark:border-slate-800">
+<img class="w-full h-full object-cover" data-alt="professional portrait of a middle-aged male instructor with a friendly expression, soft studio lighting, neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFxN4LOpVJZmon6_0EC-arO7xQvcImVoJGMs7CfdtxfTv5s9tqVym71cPySIbDejkGJ0ageXdDbHMrmcqoKgC9fGaLYAFiP9ILevSUt3-0HiRn-xN_yi93ILaXzCZja-r9s3K-I3pfnVluYtr3UnPJm-2dwjm1YMxI0DaSqqHHei8nzeTnCQm_kw87JW9KU31p69CMk9Xvug_09xN8vuKHV7dsQtkKCYWn7g7oS-VYJ3Ebs_MTAHd2A4tB7fA2lCqBVUcb7LbYkYs"/>
+</div>
+<div class="flex flex-col gap-6">
+<div class="flex flex-col gap-2">
+<span class="text-indigo-600 dark:text-indigo-400 font-bold text-[10px] uppercase tracking-[0.2em]">Lead Instructor</span>
+<h3 class="font-headline text-3xl font-extrabold text-on-surface">Dr. Aris Thorne</h3>
+<p class="text-on-surface-variant font-medium">PhD in Cognitive Neuroscience, Lead Designer at Synapse-X</p>
+</div>
+<p class="text-on-surface leading-relaxed text-base opacity-90">
+                            With over 15 years of experience in human-computer interaction, Dr. Thorne has pioneered several patents in non-invasive neural telemetry. He has taught over 50,000 students globally and is a frequent keynote speaker at MIT and Stanford.
+                        </p>
+<div class="flex flex-wrap gap-6 items-center pt-2">
+<div class="flex items-center gap-1.5 text-sm font-bold text-secondary">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span>Verified Instructor</span>
+</div>
+<div class="w-1.5 h-1.5 bg-outline-variant/40 rounded-full hidden sm:block"></div>
+<div class="flex items-center gap-1.5 text-sm font-semibold text-on-surface-variant">
+<span class="material-symbols-outlined text-lg">school</span>
+<span>42 Courses Published</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Reviews Section -->
+<section class="flex flex-col gap-8">
+<div class="flex justify-between items-end">
+<h2 class="font-headline text-3xl font-bold">Student Reviews</h2>
+<button class="text-primary font-bold text-sm hover:translate-x-1 transition-transform inline-flex items-center gap-1">View All <span class="material-symbols-outlined text-sm">arrow_forward</span></button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Review 1 -->
+<div class="bg-white dark:bg-slate-900 p-8 rounded-2xl flex flex-col gap-5 shadow-sm border border-outline-variant/10">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center font-bold text-primary text-xs">MS</div>
+<div>
+<p class="font-bold text-sm">Marcus Sterling</p>
+<p class="text-[10px] font-medium text-on-surface-variant uppercase tracking-wider">Product Designer at Apple</p>
+</div>
+</div>
+<div class="flex text-tertiary">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant italic leading-relaxed">
+                                "This course is ahead of its time. Dr. Thorne breaks down complex neurobiology into actionable design principles. Absolutely worth every penny for any designer looking at the next 10 years."
+                            </p>
+</div>
+<!-- Review 2 -->
+<div class="bg-white dark:bg-slate-900 p-8 rounded-2xl flex flex-col gap-5 shadow-sm border border-outline-variant/10">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center font-bold text-secondary text-xs">LH</div>
+<div>
+<p class="font-bold text-sm">Lena Huang</p>
+<p class="text-[10px] font-medium text-on-surface-variant uppercase tracking-wider">Senior Engineer</p>
+</div>
+</div>
+<div class="flex text-tertiary">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant italic leading-relaxed">
+                                "The practical modules in section 3 were incredible. Actually building a thought-responsive prototype was a game changer for my portfolio."
+                            </p>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Sticky Pricing Sidebar -->
+<div class="lg:col-span-4">
+<div class="sticky top-32 flex flex-col gap-6">
+<div class="bg-surface-container-lowest rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.08)] overflow-hidden flex flex-col border border-outline-variant/10">
+<!-- Course Preview Image -->
+<div class="aspect-video w-full bg-slate-200 relative group overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="abstract digital waves in deep indigo and neon purple, glowing particles representing brain activity and neural connections, high-tech aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBI7DZs8LNPibJZhhAdELnKJ2lfY9VPmOhoQUpGwH8j0Z-VChyCJugRfD5sNloaUfDgRKQYarHkWKq7pPFem0-AjCF_PxvZy6SymSXpH_T5Hp3X1pa3yL3Pg4VfLVfBl1w5mjSgHJpIlxlTx8-cNWsfYCsNOEgvU6C3b7jaMTMdVQWsI-IZm4WT_FXYH7ou-zm2tYtiLbOwYRZIuUCxfEVOjqQl3lUT9GJtzni8suUK16qjUDgHFwpTwCcNKAUPFV7WdwAM9nwImig"/>
+<div class="absolute inset-0 flex items-center justify-center bg-black/10 group-hover:bg-black/20 transition-colors">
+<div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 cursor-pointer hover:scale-110 transition-transform group-active:scale-95">
+<span class="material-symbols-outlined text-white text-4xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+</div>
+<!-- Purchase Details -->
+<div class="p-8 flex flex-col gap-8">
+<div class="flex items-end gap-3">
+<span class="text-4xl font-headline font-extrabold text-on-surface tracking-tight">$149.00</span>
+<span class="text-on-surface-variant line-through text-lg mb-1">$299.00</span>
+<span class="text-[#EA580C] font-bold text-[10px] bg-orange-100 dark:bg-orange-900/30 px-2 py-1 rounded-lg mb-1.5 uppercase tracking-wide">50% OFF</span>
+</div>
+<div class="flex flex-col gap-4">
+<button class="w-full py-5 orange-cta-gradient text-white font-extrabold text-lg rounded-2xl shadow-[0_10px_20px_rgba(249,115,22,0.3)] hover:-translate-y-1 hover:shadow-[0_15px_25px_rgba(249,115,22,0.4)] transition-all active:scale-[0.98]">Buy Now</button>
+<button class="w-full py-4 bg-surface-container-high text-primary font-bold rounded-2xl hover:bg-surface-container-highest transition-colors active:scale-[0.98]">Add to Cart</button>
+</div>
+<p class="text-[10px] text-center text-on-surface-variant font-medium tracking-wide uppercase">30-Day Money-Back Guarantee • Lifetime Access</p>
+<div class="flex flex-col gap-5 pt-6 border-t border-outline-variant/10">
+<p class="font-bold text-sm text-on-surface">This course includes:</p>
+<ul class="flex flex-col gap-4">
+<li class="flex items-center gap-3.5 text-sm text-on-surface-variant font-medium">
+<span class="material-symbols-outlined text-primary text-xl">smart_display</span>
+<span>24 hours on-demand video</span>
+</li>
+<li class="flex items-center gap-3.5 text-sm text-on-surface-variant font-medium">
+<span class="material-symbols-outlined text-primary text-xl">description</span>
+<span>15 downloadable resources</span>
+</li>
+<li class="flex items-center gap-3.5 text-sm text-on-surface-variant font-medium">
+<span class="material-symbols-outlined text-primary text-xl">devices</span>
+<span>Access on mobile and TV</span>
+</li>
+<li class="flex items-center gap-3.5 text-sm text-on-surface-variant font-medium">
+<span class="material-symbols-outlined text-primary text-xl">workspace_premium</span>
+<span>Certificate of completion</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Additional Sidebar Content -->
+<div class="bg-indigo-600 p-8 rounded-3xl flex flex-col gap-4 shadow-lg">
+<p class="text-white font-extrabold text-lg">Special Offer for Teams</p>
+<p class="text-indigo-100 text-sm leading-relaxed">Enroll 5+ members and get an additional 20% discount on total billing.</p>
+<a class="text-white font-bold text-sm flex items-center gap-2 group mt-2" href="#">
+                            Contact Sales 
+                            <span class="material-symbols-outlined text-sm group-hover:translate-x-1.5 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Shared Footer Component -->
+<footer class="w-full border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 mt-20">
+<div class="py-12 px-10 flex flex-col md:flex-row justify-between items-center max-w-[1440px] mx-auto font-['Manrope'] text-[#111827] dark:text-slate-200 text-sm">
+<div class="flex flex-col items-center md:items-start gap-4">
+<span class="text-lg font-bold text-indigo-600">SAATHI</span>
+<p class="text-slate-500 text-xs">© 2024 SAATHI. Built for the Editorial Architect.</p>
+</div>
+<div class="flex gap-10 mt-8 md:mt-0">
+<a class="text-slate-500 hover:underline underline-offset-4" href="#">Privacy Policy</a>
+<a class="text-slate-500 hover:underline underline-offset-4" href="#">Terms of Service</a>
+<a class="text-slate-500 hover:underline underline-offset-4" href="#">Security</a>
+<a class="text-slate-500 hover:underline underline-offset-4" href="#">Status</a>
+</div>
+</div>
+</footer>
+</body></html>
