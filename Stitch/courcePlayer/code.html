@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SAATHI Course Player - Advanced Web Development</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#783200",
+                        "secondary-fixed-dim": "#4edea3",
+                        "on-background": "#191c1d",
+                        "secondary-container": "#6cf8bb",
+                        "primary": "#3525cd",
+                        "on-secondary-container": "#00714d",
+                        "outline-variant": "#c7c4d8",
+                        "on-tertiary": "#ffffff",
+                        "background": "#f8f9fa",
+                        "surface": "#f8f9fa",
+                        "inverse-primary": "#c3c0ff",
+                        "on-tertiary-fixed": "#341100",
+                        "on-primary-container": "#dad7ff",
+                        "secondary-fixed": "#6ffbbe",
+                        "surface-variant": "#e1e3e4",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-surface-variant": "#464555",
+                        "on-surface": "#191c1d",
+                        "outline": "#777587",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#e2dfff",
+                        "inverse-surface": "#2e3132",
+                        "surface-container-low": "#f3f4f5",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "secondary": "#10B981",
+                        "on-tertiary-container": "#ffd2bd",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#ffdbca",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#000a63",
+                        "on-secondary-fixed-variant": "#005236",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#e7e8e9",
+                        "tertiary": "#7b3300",
+                        "surface-container": "#edeeef",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-bright": "#f8f9fa",
+                        "tertiary-container": "#a04500",
+                        "surface-tint": "#4d44e3",
+                        "surface-dim": "#d9dadb",
+                        "primary-container": "#4f46e5",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#002113",
+                        "tertiary-fixed-dim": "#ffb690"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .video-gradient-overlay {
+            background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 40%);
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-surface antialiased overflow-x-hidden">
+<!-- Shared TopNavBar Component Integration -->
+<header class="bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl fixed top-0 w-full z-50 shadow-[0_8px_32px_0_rgba(79,70,229,0.08)]">
+<nav class="flex justify-between items-center h-20 px-10 max-w-[1440px] mx-auto font-['Manrope'] antialiased tracking-tight">
+<div class="text-2xl font-black text-indigo-600 dark:text-indigo-400 tracking-tighter uppercase">
+            SAATHI
+        </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-indigo-500 transition-colors duration-200" href="#">Platform</a>
+<a class="text-indigo-600 dark:text-indigo-400 font-bold border-b-2 border-indigo-600 pb-1" href="#">My Courses</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-indigo-500 transition-colors duration-200" href="#">Resources</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-indigo-500 transition-colors duration-200" href="#">Pricing</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant p-2 hover:bg-surface-container-low rounded-full transition-colors">search</button>
+<div class="flex items-center gap-4 border-l border-slate-200 pl-4">
+<img alt="Student Profile Avatar" class="w-10 h-10 rounded-full border-2 border-indigo-600/10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQzcJgO0D1AXUHxaSNYsR9Tcguw_IScH3-6m8y0NGVs_Os0Y6LnD4GiJxCE0QdWZJJh8hrIQM_s5tyG4UKbH-QgQsVLE_n6PI2mjwRVWevQn8G2wDSxDAzRJI5Y0uHWJ7VSS-ho1SQMMcdE9PMNwmxvBxt2elZsImMIUJmhszQDwx1mv6vm9YQFph5JxHAB1Nz60xnU_kUYbtMGOjXFyDmzQlf2YIe2yYwr1LOhHjFWFOqZh-7FDjP53hYinG48eE3M8RCdZOpSrY"/>
+</div>
+</div>
+</nav>
+</header>
+<main class="pt-20 max-w-[1440px] mx-auto min-h-[calc(100vh-80px)] flex flex-col lg:flex-row">
+<!-- Left Column: Immersive Video Player & Lesson Info -->
+<section class="flex-1 lg:h-[calc(100vh-80px)] overflow-y-auto bg-white">
+<!-- Video Player Area -->
+<div class="w-full bg-black relative">
+<div class="aspect-video w-full group relative overflow-hidden">
+<img alt="Video Content Placeholder" class="w-full h-full object-cover opacity-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHU0dyc9PDRvWb9fs6VIF0vlkpxF_oC-xhrpHF4eeG1UnKJ-lnBgMETjsRW3cMnO7m7mFF6cuWLm52ge_0FVX6oRNQ6HaZuvciiMFbmqX6D81PyV4_ITxtK9QvWV3JnDVuEw4HKR_u77PGfwaO03B9VCxG4PCQu2-LgU6YxAxxufep58vMLsjeJTiLwl0Q7AoGLQPiHQrPc1MSjdGZhJc7yVCpaHVBsyMNsHGe6qyfKnhIHPoKrPneqoxjad5nabDBEQ1SETh9v60"/>
+<!-- Video Controls Overlay -->
+<div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors duration-300">
+<button class="w-24 h-24 bg-white/20 backdrop-blur-md text-white rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 group/play">
+<div class="w-20 h-20 bg-primary/90 rounded-full flex items-center justify-center group-hover/play:bg-primary transition-colors">
+<span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</button>
+</div>
+<!-- Custom Player UI -->
+<div class="absolute bottom-0 left-0 right-0 p-8 video-gradient-overlay flex flex-col gap-5 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+<div class="w-full h-1.5 bg-white/30 rounded-full cursor-pointer relative group/progress">
+<div class="absolute top-0 left-0 h-full w-1/3 bg-primary rounded-full"></div>
+<div class="absolute top-1/2 left-1/3 -translate-y-1/2 w-4 h-4 bg-white rounded-full shadow-lg border-2 border-primary scale-0 group-hover/progress:scale-100 transition-transform"></div>
+</div>
+<div class="flex items-center justify-between text-white">
+<div class="flex items-center gap-8">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">play_circle</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">skip_next</span>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">volume_up</span>
+<div class="w-20 h-1 bg-white/20 rounded-full hidden sm:block">
+<div class="w-3/4 h-full bg-white rounded-full"></div>
+</div>
+</div>
+<span class="text-sm font-medium font-label">12:45 / 34:20</span>
+</div>
+<div class="flex items-center gap-8">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">closed_caption</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">settings</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">fullscreen</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Content Details -->
+<div class="p-8 md:p-14 space-y-10">
+<div class="flex flex-col xl:flex-row xl:items-end justify-between gap-8">
+<div class="space-y-4">
+<div class="flex items-center gap-3 text-primary font-bold tracking-[0.15em] text-xs uppercase font-headline">
+<span class="px-2 py-1 bg-primary/10 rounded">Module 04</span>
+<span class="w-1.5 h-1.5 bg-outline-variant rounded-full"></span>
+<span>Lesson 02</span>
+</div>
+<h1 class="text-5xl font-black font-headline text-on-surface tracking-tight leading-tight max-w-3xl">Advanced State Management with Context API</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="group px-8 py-4 rounded-2xl bg-surface-container-high text-on-surface-variant font-bold text-sm transition-all duration-300 hover:bg-surface-container-highest hover:-translate-x-1 flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] transition-transform group-hover:-translate-x-1">chevron_left</span>
+                        Previous
+                    </button>
+<button class="group px-8 py-4 rounded-2xl bg-primary text-white font-bold text-sm shadow-xl shadow-indigo-600/20 transition-all duration-300 hover:shadow-indigo-600/40 hover:-translate-y-1 flex items-center gap-2">
+                        Next Lesson
+                        <span class="material-symbols-outlined text-[20px] transition-transform group-hover:translate-x-1">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Tabs/Description Area -->
+<div class="space-y-8">
+<div class="flex gap-10 border-b border-outline-variant/10 text-base font-bold font-label">
+<button class="pb-5 border-b-4 border-primary text-primary relative after:absolute after:bottom-[-4px] after:left-0 after:right-0 after:h-1 after:bg-primary after:rounded-full">Overview</button>
+<button class="pb-5 text-on-surface-variant hover:text-primary transition-colors">Resources</button>
+<button class="pb-5 text-on-surface-variant hover:text-primary transition-colors">Discussion</button>
+<button class="pb-5 text-on-surface-variant hover:text-primary transition-colors">Notes</button>
+</div>
+<div class="max-w-4xl space-y-6">
+<p class="text-lg text-on-surface-variant leading-relaxed">
+                        In this lesson, we dive deep into the world of React's Context API. We'll explore why state management is crucial for large-scale applications and how to effectively avoid "prop drilling" while maintaining high performance. By the end of this session, you'll be able to architect global state providers that are both scalable and clean.
+                    </p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="flex items-center gap-4 p-4 rounded-2xl border border-slate-100 hover:border-primary/20 transition-colors">
+<span class="material-symbols-outlined text-secondary font-bold">check_circle</span>
+<span class="text-sm font-medium text-on-surface-variant">Understanding limitations of local state</span>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-2xl border border-slate-100 hover:border-primary/20 transition-colors">
+<span class="material-symbols-outlined text-secondary font-bold">check_circle</span>
+<span class="text-sm font-medium text-on-surface-variant">Creating Custom Provider Hooks</span>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-2xl border border-slate-100 hover:border-primary/20 transition-colors">
+<span class="material-symbols-outlined text-secondary font-bold">check_circle</span>
+<span class="text-sm font-medium text-on-surface-variant">Optimizing re-renders</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Column: Sidebar -->
+<aside class="w-full lg:w-[440px] bg-[#fcf8ff] flex flex-col border-l border-slate-100">
+<!-- Progress Header -->
+<div class="p-8 space-y-6 sticky top-0 z-10 bg-[#fcf8ff]/80 backdrop-blur-md">
+<div class="flex items-center justify-between">
+<h2 class="font-headline font-black text-xl text-on-surface">Course Content</h2>
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold text-primary font-label">42% Complete</span>
+</div>
+</div>
+<div class="w-full h-3 bg-indigo-100 rounded-full overflow-hidden shadow-inner">
+<div class="h-full bg-primary w-[42%] transition-all duration-1000 ease-out"></div>
+</div>
+<button class="w-full py-5 bg-[#10B981] text-white rounded-2xl font-black text-sm uppercase tracking-widest flex items-center justify-center gap-3 shadow-lg shadow-emerald-500/20 transition-all duration-300 hover:shadow-emerald-500/40 hover:-translate-y-1 active:scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                Mark as Complete
+            </button>
+</div>
+<!-- Module List -->
+<div class="flex-1 overflow-y-auto px-6 pb-20 space-y-3">
+<!-- Module 01 -->
+<div class="group">
+<div class="px-5 py-4 flex items-center justify-between cursor-pointer hover:bg-white rounded-2xl transition-all border border-transparent hover:border-slate-100">
+<span class="font-headline font-bold text-sm text-on-surface">01. Getting Started</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[20px] transition-transform group-hover:rotate-180">keyboard_arrow_down</span>
+</div>
+</div>
+<!-- Module 02 -->
+<div class="group">
+<div class="px-5 py-4 flex items-center justify-between cursor-pointer hover:bg-white rounded-2xl transition-all border border-transparent hover:border-slate-100">
+<span class="font-headline font-bold text-sm text-on-surface">02. Modern JavaScript Essentials</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[20px] transition-transform group-hover:rotate-180">keyboard_arrow_down</span>
+</div>
+</div>
+<!-- Module 03 (Completed) -->
+<div class="group">
+<div class="px-5 py-4 flex items-center justify-between bg-white/60 rounded-2xl border border-slate-100">
+<span class="font-headline font-bold text-sm text-on-surface-variant">03. The React Mental Model</span>
+<span class="material-symbols-outlined text-[#10B981] text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<!-- Module 04 (Active) -->
+<div class="bg-white rounded-3xl shadow-sm border border-primary/10 overflow-hidden ring-4 ring-primary/5">
+<div class="px-6 py-5 flex items-center justify-between bg-primary/5">
+<span class="font-headline font-black text-sm text-primary uppercase tracking-[0.1em]">04. Mastering State</span>
+<span class="material-symbols-outlined text-primary">keyboard_arrow_up</span>
+</div>
+<div class="p-3 space-y-1">
+<!-- Lesson Item (Completed) -->
+<div class="flex items-center gap-4 px-4 py-3 rounded-2xl hover:bg-slate-50 transition-colors group cursor-pointer">
+<span class="material-symbols-outlined text-[#10B981] text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div class="flex-1">
+<p class="text-sm font-semibold text-on-surface-variant">L1: State vs Props</p>
+<p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">12:05 mins</p>
+</div>
+</div>
+<!-- Lesson Item (Active) -->
+<div class="flex items-center gap-4 px-4 py-4 rounded-2xl bg-primary/10 transition-all border-l-4 border-primary">
+<span class="material-symbols-outlined text-primary text-[22px]" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+<div class="flex-1">
+<p class="text-sm font-black text-primary">L2: Context API Deep Dive</p>
+<p class="text-[10px] text-primary/70 font-bold uppercase tracking-wider">34:20 mins</p>
+</div>
+</div>
+<!-- Lesson Item (Pending) -->
+<div class="flex items-center gap-4 px-4 py-3 rounded-2xl hover:bg-slate-50 transition-colors group cursor-pointer opacity-50">
+<span class="material-symbols-outlined text-slate-400 text-[20px]">lock</span>
+<div class="flex-1">
+<p class="text-sm font-medium text-slate-500">L3: External State Libraries</p>
+<p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">28:45 mins</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Module 05 -->
+<div class="group">
+<div class="px-5 py-4 flex items-center justify-between opacity-50 cursor-not-allowed">
+<span class="font-headline font-bold text-sm text-on-surface">05. Performance Optimization</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">lock</span>
+</div>
+</div>
+</div>
+</aside>
+</main>
+<!-- Shared Footer Component Integration -->
+<footer class="w-full border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 font-['Manrope']">
+<div class="py-12 px-10 flex flex-col md:flex-row justify-between items-center max-w-[1440px] mx-auto text-[#111827] dark:text-slate-200 text-sm">
+<div class="flex flex-col items-center md:items-start gap-3">
+<div class="text-lg font-bold text-indigo-600">SAATHI</div>
+<p class="text-slate-500">© 2024 SAATHI. Built for the Editorial Architect.</p>
+</div>
+<div class="flex gap-8 mt-8 md:mt-0 text-slate-500">
+<a class="hover:underline underline-offset-4" href="#">Privacy Policy</a>
+<a class="hover:underline underline-offset-4" href="#">Terms of Service</a>
+<a class="hover:underline underline-offset-4" href="#">Security</a>
+<a class="hover:underline underline-offset-4" href="#">Status</a>
+</div>
+</div>
+</footer>
+</body></html>

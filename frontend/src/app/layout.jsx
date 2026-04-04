@@ -1,6 +1,4 @@
 import "@/styles/globals.css";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
 
 export const metadata = {
   title: "SAATHI | Affordable Learning for Every Student",
@@ -9,7 +7,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="h-full scroll-smooth">
+    <html lang="en" className="h-full scroll-smooth" data-scroll-behavior="smooth">
       <head>
         <link
           href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
@@ -21,11 +19,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="min-h-full bg-surface font-body text-on-surface antialiased">
-        <div className="flex min-h-screen flex-col">
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </div>
+        {children}
       </body>
     </html>
   );

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Edit Course - SAATHI Scholar</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-container": "#ffd2bd",
+              "secondary-fixed-dim": "#4edea3",
+              "tertiary-fixed-dim": "#ffb690",
+              "surface-dim": "#dcd8e5",
+              "surface-container-low": "#f5f2ff",
+              "on-primary-fixed": "#0f0069",
+              "secondary-container": "#6cf8bb",
+              "primary": "#3525cd",
+              "on-tertiary-fixed": "#341100",
+              "tertiary-fixed": "#ffdbca",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary": "#ffffff",
+              "tertiary": "#7b3300",
+              "background": "#fcf8ff",
+              "surface-container-highest": "#e4e1ee",
+              "on-surface": "#1b1b24",
+              "outline": "#777587",
+              "primary-fixed": "#e2dfff",
+              "surface-tint": "#4d44e3",
+              "error-container": "#ffdad6",
+              "on-primary-fixed-variant": "#3323cc",
+              "surface-variant": "#e4e1ee",
+              "primary-fixed-dim": "#c3c0ff",
+              "secondary": "#006c49",
+              "tertiary-container": "#a04500",
+              "secondary-fixed": "#6ffbbe",
+              "primary-container": "#4f46e5",
+              "on-surface-variant": "#464555",
+              "error": "#ba1a1a",
+              "on-error-container": "#93000a",
+              "on-secondary-container": "#00714d",
+              "inverse-surface": "#302f39",
+              "on-secondary-fixed": "#002113",
+              "on-background": "#1b1b24",
+              "on-primary-container": "#dad7ff",
+              "surface-bright": "#fcf8ff",
+              "surface-container-high": "#eae6f4",
+              "on-primary": "#ffffff",
+              "inverse-primary": "#c3c0ff",
+              "surface-container": "#f0ecf9",
+              "on-tertiary": "#ffffff",
+              "on-error": "#ffffff",
+              "on-secondary-fixed-variant": "#005236",
+              "outline-variant": "#c7c4d8",
+              "inverse-on-surface": "#f3effc",
+              "surface": "#fcf8ff",
+              "on-tertiary-fixed-variant": "#783200"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        font-family: 'Manrope', sans-serif;
+        background-color: #fcf8ff;
+      }
+      .ghost-border {
+        outline: 1px solid rgba(199, 196, 216, 0.15);
+      }
+    </style>
+</head>
+<body class="antialiased">
+<!-- SideNavBar Anchor -->
+<aside class="h-screen w-64 fixed left-0 top-0 border-r-0 bg-slate-50 flex flex-col py-8 px-4 font-manrope antialiased tracking-tight z-50">
+<div class="mb-10 px-2">
+<span class="text-2xl font-black tracking-tighter text-indigo-700">SAATHI</span>
+<p class="text-xs text-slate-400 font-bold uppercase tracking-widest mt-1">Tutor Portal</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-indigo-500 hover:bg-indigo-50/50 transition-colors duration-200 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-indigo-500 hover:bg-indigo-50/50 transition-colors duration-200 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-medium">My Courses</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-indigo-700 font-bold border-r-4 border-indigo-600 bg-indigo-50/50 transition-transform translate-x-1 duration-200 rounded-l-xl" href="#">
+<span class="material-symbols-outlined" data-icon="cloud_upload">cloud_upload</span>
+<span class="font-medium">Upload Course</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-indigo-500 hover:bg-indigo-50/50 transition-colors duration-200 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+<span class="font-medium">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-indigo-500 hover:bg-indigo-50/50 transition-colors duration-200 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-medium">Earnings</span>
+</a>
+</nav>
+<div class="pt-6 border-t border-slate-100 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-indigo-500 hover:bg-indigo-50/50 transition-colors duration-200 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-medium">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-indigo-500 hover:bg-indigo-50/50 transition-colors duration-200 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span class="font-medium">Help</span>
+</a>
+</div>
+</aside>
+<!-- TopNavBar Anchor -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 z-40 bg-white/70 backdrop-blur-xl flex items-center justify-between px-8 shadow-sm shadow-indigo-100/20">
+<div class="flex items-center gap-8">
+<div class="relative group">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 material-symbols-outlined" data-icon="search">search</span>
+<input class="bg-surface-container-high border-none rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 w-64 transition-all" placeholder="Search resources..." type="text"/>
+</div>
+<nav class="flex items-center gap-6">
+<a class="text-indigo-700 border-b-2 border-indigo-600 pb-1 font-manrope font-medium text-sm" href="#">Overview</a>
+<a class="text-slate-500 hover:text-indigo-600 transition-all font-manrope font-medium text-sm" href="#">Resources</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<button class="text-slate-500 hover:text-indigo-600 transition-all material-symbols-outlined" data-icon="notifications">notifications</button>
+<button class="text-slate-500 hover:text-indigo-600 transition-all material-symbols-outlined" data-icon="mail">mail</button>
+</div>
+<div class="h-8 w-[1px] bg-slate-200"></div>
+<div class="flex items-center gap-3">
+<button class="bg-gradient-to-br from-primary to-primary-container text-white px-5 py-2 rounded-xl text-sm font-bold shadow-lg shadow-indigo-200/50 active:scale-95 duration-150">Go Live</button>
+<img alt="Tutor Profile Avatar" class="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm" data-alt="Professional tutor headshot in a bright office environment, smiling with warm friendly lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkE14KBYzvnumOF687jExTw6UyFQ_ywNKOL9RV-VHa29xDpqHxoNGlWXGJMe-KIJtac3HU5_67EppcBik-8RyUWb2ZTABM5HSAWC1rHPvR8CpyRMbjth12cBxb1-oDfXtoc3PQWnw0d_22DyjkiufzoqcaAnswjhpUcVfnaUySHZYtmjRgrQ7BT2usEVFv7A6u8vhpsOLoUvV2CiLJW9WpP0tFpcEFj6ILSmXrR-qORjO6XzPGANFImcipSkRU5CsRmWQEf9nviHhx"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 pb-16 px-10">
+<div class="max-w-4xl mx-auto">
+<!-- Page Header -->
+<div class="mb-12">
+<h1 class="text-4xl font-extrabold tracking-tight text-on-surface mb-2 font-headline">Course Editor</h1>
+<p class="text-on-surface-variant text-lg">Bring your expertise to life. Draft, design, and deploy your curriculum.</p>
+</div>
+<!-- Editor Flow -->
+<div class="space-y-10">
+<!-- Section 1: Basic Info -->
+<section class="bg-surface-container-lowest rounded-2xl p-8 shadow-sm ghost-border">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 rounded-xl bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="info">info</span>
+</div>
+<h2 class="text-xl font-bold text-on-surface">Basic Information</h2>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div class="col-span-2 space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-outline">Course Title</label>
+<input class="w-full bg-surface-container-high border-none rounded-lg px-4 py-3 focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all outline-none" placeholder="e.g. Masterclass in Modern Architecture" type="text"/>
+</div>
+<div class="col-span-2 space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-outline">Description</label>
+<textarea class="w-full bg-surface-container-high border-none rounded-lg px-4 py-3 focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all outline-none resize-none" placeholder="Describe what students will achieve in this course..." rows="4"></textarea>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-outline">Category</label>
+<select class="w-full bg-surface-container-high border-none rounded-lg px-4 py-3 focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all outline-none appearance-none">
+<option>Design &amp; Arts</option>
+<option>Programming</option>
+<option>Business &amp; Finance</option>
+<option>Health &amp; Wellness</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-outline">Price (USD)</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant font-bold">$</span>
+<input class="w-full bg-surface-container-high border-none rounded-lg pl-8 pr-4 py-3 focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all outline-none" placeholder="49.99" type="number"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Course Thumbnail -->
+<section class="bg-surface-container-lowest rounded-2xl p-8 shadow-sm ghost-border">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 rounded-xl bg-secondary-fixed flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="image">image</span>
+</div>
+<h2 class="text-xl font-bold text-on-surface">Course Thumbnail</h2>
+</div>
+<div class="group relative border-2 border-dashed border-outline-variant hover:border-primary/50 hover:bg-primary-fixed/20 transition-all cursor-pointer rounded-2xl h-56 flex flex-col items-center justify-center text-center p-6">
+<div class="w-16 h-16 rounded-full bg-white shadow-sm flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary scale-125" data-icon="cloud_upload">cloud_upload</span>
+</div>
+<p class="text-on-surface font-semibold">Drag &amp; drop your thumbnail here</p>
+<p class="text-on-surface-variant text-sm mt-1">Supports JPG, PNG (16:9 recommended)</p>
+</div>
+</section>
+<!-- Section 3: Modules & Lessons -->
+<section class="space-y-6">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-on-primary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="layers">layers</span>
+</div>
+<h2 class="text-xl font-bold text-on-surface">Curriculum Builder</h2>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 bg-secondary-container text-on-secondary-container rounded-xl font-bold hover:scale-105 active:scale-95 transition-all text-sm">
+<span class="material-symbols-outlined text-lg" data-icon="add">add</span>
+                            Add Module
+                        </button>
+</div>
+<!-- Module Item -->
+<div class="bg-surface-container-lowest rounded-2xl p-8 shadow-sm ghost-border relative">
+<div class="absolute top-4 right-4">
+<button class="text-outline hover:text-error transition-colors material-symbols-outlined" data-icon="delete">delete</button>
+</div>
+<div class="flex items-start gap-6">
+<div class="flex flex-col items-center gap-2">
+<span class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xs">01</span>
+<div class="w-[2px] h-20 bg-primary-fixed"></div>
+</div>
+<div class="flex-1 grid grid-cols-2 gap-6">
+<div class="col-span-2 space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-outline">Module Title</label>
+<input class="w-full bg-surface-container-high border-none rounded-lg px-4 py-3 focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all outline-none" type="text" value="Introduction to Spatial Design"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-outline">Video URL (Vimeo)</label>
+<input class="w-full bg-surface-container-high border-none rounded-lg px-4 py-3 focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all outline-none" placeholder="https://vimeo.com/..." type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-outline">Reward Points</label>
+<input class="w-full bg-surface-container-high border-none rounded-lg px-4 py-3 focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all outline-none" type="number" value="100"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Module Item 2 (Nested Depth Example) -->
+<div class="bg-surface-container-low rounded-2xl p-8 shadow-sm relative">
+<div class="flex items-start gap-6 opacity-60">
+<div class="flex flex-col items-center gap-2">
+<span class="w-8 h-8 rounded-full bg-outline-variant text-white flex items-center justify-center font-bold text-xs">02</span>
+</div>
+<div class="flex-1">
+<p class="text-on-surface font-semibold">New Module</p>
+<p class="text-on-surface-variant text-sm">Click to start adding content to this section.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: Publish Settings -->
+<section class="bg-surface-container-lowest rounded-2xl p-8 shadow-sm ghost-border flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-xl bg-tertiary-fixed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</div>
+<div>
+<h2 class="text-xl font-bold text-on-surface">Publish Status</h2>
+<p class="text-sm text-on-surface-variant">Choose if this course should be live or kept in draft mode.</p>
+</div>
+</div>
+<div class="flex bg-surface-container-high p-1 rounded-2xl w-64 relative">
+<button class="flex-1 py-2 rounded-xl text-sm font-bold text-on-surface-variant transition-all hover:text-on-surface">Draft</button>
+<button class="flex-1 py-2 rounded-xl text-sm font-bold bg-white text-primary shadow-sm ring-1 ring-black/5 transition-all">Published</button>
+</div>
+</section>
+<!-- Final Actions -->
+<div class="flex items-center justify-end gap-4 pt-6 border-t border-surface-container-highest">
+<button class="px-8 py-4 rounded-xl text-primary font-bold hover:bg-primary-fixed/50 transition-all active:scale-95">
+                        Save as Draft
+                    </button>
+<button class="px-10 py-4 bg-gradient-to-br from-tertiary-container to-tertiary text-white rounded-2xl font-bold text-lg shadow-xl shadow-tertiary-container/20 hover:scale-[1.02] active:scale-[0.98] transition-all">
+                        Publish Course
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Identity -->
+<footer class="ml-64 py-10 px-10 border-t border-surface-container-highest">
+<div class="max-w-4xl mx-auto flex items-center justify-between text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="font-bold text-primary">SAATHI</span>
+<span class="text-sm">© 2024 Editorial Architect Learning</span>
+</div>
+<div class="flex gap-6 text-sm">
+<a class="hover:text-primary transition-colors" href="#">Documentation</a>
+<a class="hover:text-primary transition-colors" href="#">Tutor Agreement</a>
+<a class="hover:text-primary transition-colors" href="#">Privacy</a>
+</div>
+</div>
+</footer>
+</body></html>
