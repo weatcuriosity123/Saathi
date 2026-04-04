@@ -9,9 +9,11 @@ const { isCourseOwner } = require('../../middleware/course.middleware');
 const courseController = require('./course.controller');
 const { createCourseSchema, updateCourseSchema, courseQuerySchema } = require('./course.validation');
 
-// Mount module routes under courses
+// Mount module + review routes under courses
 const moduleRouter = require('../module/module.routes');
+const reviewRouter = require('../review/review.routes');
 router.use('/:courseId/modules', moduleRouter);
+router.use('/:courseId/reviews', reviewRouter);
 
 // ── Public ─────────────────────────────────────────────────────────────────────
 router.get(

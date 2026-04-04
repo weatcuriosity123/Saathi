@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SAATHI - Sign In to Your Learning Sanctuary</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-fixed-variant": "#783200",
+              "secondary-fixed-dim": "#4edea3",
+              "on-background": "#191c1d",
+              "secondary-container": "#6cf8bb",
+              "primary": "#3525cd",
+              "on-secondary-container": "#00714d",
+              "outline-variant": "#c7c4d8",
+              "on-tertiary": "#ffffff",
+              "background": "#f8f9fa",
+              "surface": "#f8f9fa",
+              "inverse-primary": "#c3c0ff",
+              "on-tertiary-fixed": "#341100",
+              "on-primary-container": "#dad7ff",
+              "secondary-fixed": "#6ffbbe",
+              "surface-variant": "#e1e3e4",
+              "inverse-on-surface": "#f0f1f2",
+              "on-surface-variant": "#464555",
+              "on-surface": "#191c1d",
+              "outline": "#777587",
+              "on-primary": "#ffffff",
+              "primary-fixed": "#e2dfff",
+              "inverse-surface": "#2e3132",
+              "surface-container-low": "#f3f4f5",
+              "error-container": "#ffdad6",
+              "primary-fixed-dim": "#c3c0ff",
+              "secondary": "#006c49",
+              "on-tertiary-container": "#ffd2bd",
+              "on-secondary": "#ffffff",
+              "tertiary-fixed": "#ffdbca",
+              "on-error-container": "#93000a",
+              "on-primary-fixed": "#0f0069",
+              "on-secondary-fixed-variant": "#005236",
+              "on-error": "#ffffff",
+              "surface-container-high": "#e7e8e9",
+              "tertiary": "#7b3300",
+              "surface-container": "#edeeef",
+              "on-primary-fixed-variant": "#3323cc",
+              "surface-container-highest": "#e1e3e4",
+              "surface-bright": "#f8f9fa",
+              "tertiary-container": "#a04500",
+              "surface-tint": "#4d44e3",
+              "surface-dim": "#d9dadb",
+              "primary-container": "#4f46e5",
+              "error": "#ba1a1a",
+              "on-secondary-fixed": "#002113",
+              "tertiary-fixed-dim": "#ffb690"
+            },
+            fontFamily: {
+              "headline": ["Manrope", "sans-serif"],
+              "body": ["Inter", "sans-serif"],
+              "label": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .auth-gradient {
+            background: linear-gradient(135deg, #3525cd 0%, #4f46e5 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased min-h-screen flex flex-col">
+<!-- Suppressing TopNavBar and SideNavBar for focused transactional flow -->
+<main class="flex-grow flex items-center justify-center p-6 md:p-12">
+<div class="w-full max-w-5xl flex flex-col md:flex-row bg-surface-container-lowest rounded-2xl overflow-hidden shadow-[0_20px_40px_-10px_rgba(77,68,227,0.08)]">
+<!-- Left Side: Visual Illustration/Brand Area -->
+<div class="hidden md:flex md:w-1/2 relative bg-primary-container items-center justify-center p-12 overflow-hidden">
+<div class="absolute inset-0 z-0 opacity-40">
+<img alt="Abstract flowing gradients of indigo and emerald" class="w-full h-full object-cover" data-alt="Soft flowing abstract gradient background with deep indigo, electric purple and emerald green highlights with a grainy paper texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeMVbusSTdB3aPa7j8hhHoK2JtG0oYlLmVx2ROiVRTke1_I-9H6H_BDmd1U06Zy59WZE4xpxNdgfkufV4bA1AhJLjczAdpOmnoYP_6Ee35DazyQnH24yraLtLTB6kxEwVvQzooALnD0oPEVFLRest7pDDp3NzwmivLm_lRbtGODTMVcP2nUTx79xzU2wzYlNgtXi5G8Sk6Zek89dkR8eRI4e06_YoMxPpKhr-oQL9oWqtK5qPm6QQ3ieYjwBb95cIFfsGuAetlLVc"/>
+</div>
+<div class="relative z-10 flex flex-col gap-8">
+<div class="text-white">
+<h1 class="font-headline font-extrabold text-5xl tracking-tighter mb-4">SAATHI</h1>
+<p class="text-primary-fixed font-body text-lg leading-relaxed max-w-xs">
+                            Step into your sanctuary of knowledge. Where learning feels like progress, not pressure.
+                        </p>
+</div>
+<!-- Floating Glass Card for "The Breathable Offset" -->
+<div class="glass-panel p-6 rounded-2xl shadow-xl max-w-xs transform translate-x-12 translate-y-4">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-white">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div>
+<p class="text-xs font-label text-slate-500 uppercase tracking-widest">Global Reach</p>
+<p class="font-headline font-bold text-on-surface">1.2M+ Students</p>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm leading-snug">
+                            Join the world's most supportive community of lifelong learners.
+                        </p>
+</div>
+</div>
+<!-- Decorative Emerald Accent -->
+<div class="absolute bottom-[-10%] left-[-10%] w-64 h-64 bg-secondary rounded-full opacity-20 blur-3xl"></div>
+</div>
+<!-- Right Side: Auth Form Content -->
+<div class="w-full md:w-1/2 p-8 md:p-16 flex flex-col justify-center bg-surface-container-lowest">
+<!-- Logo for Mobile Only -->
+<div class="md:hidden mb-8">
+<h2 class="font-headline font-extrabold text-2xl text-primary tracking-tighter">SAATHI</h2>
+</div>
+<div class="mb-10">
+<h2 class="font-headline text-3xl font-bold text-on-surface mb-2">Welcome back</h2>
+<p class="text-on-surface-variant text-sm">Please enter your details to access your dashboard.</p>
+</div>
+<form class="flex flex-col gap-6">
+<!-- Email Input -->
+<div class="flex flex-col gap-2">
+<label class="font-label text-xs font-semibold text-on-surface uppercase tracking-wider" for="email">Email Address</label>
+<input class="w-full px-5 py-4 bg-surface-container-low border-none rounded-xl text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/30 transition-all outline-none" id="email" placeholder="name@example.com" type="email"/>
+</div>
+<!-- Password Input -->
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-center">
+<label class="font-label text-xs font-semibold text-on-surface uppercase tracking-wider" for="password">Password</label>
+<a class="text-xs text-primary font-medium hover:underline" href="#">Forgot password?</a>
+</div>
+<div class="relative">
+<input class="w-full px-5 py-4 bg-surface-container-low border-none rounded-xl text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/30 transition-all outline-none" id="password" placeholder="••••••••" type="password"/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-outline hover:text-on-surface-variant transition-colors" type="button">
+<span class="material-symbols-outlined text-lg">visibility</span>
+</button>
+</div>
+</div>
+<!-- CTA Button -->
+<button class="auth-gradient text-white py-4 rounded-2xl font-headline font-bold text-lg hover:-translate-y-0.5 transition-all active:scale-95 shadow-lg shadow-primary/20" type="submit">
+                        Login
+                    </button>
+<!-- Divider -->
+<div class="flex items-center gap-4 my-2">
+<div class="h-[1px] flex-grow bg-outline-variant/30"></div>
+<span class="text-xs font-label text-outline uppercase tracking-widest">Or continue with</span>
+<div class="h-[1px] flex-grow bg-outline-variant/30"></div>
+</div>
+<!-- Social Login -->
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center gap-2 py-3 bg-surface-container-low rounded-xl font-medium text-sm text-on-surface hover:bg-surface-container-high transition-colors" type="button">
+<img alt="Google Logo" class="w-5 h-5" data-alt="Official Google G colorful icon logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCmSqEQ4W9sEkXgzQJUP_HTk0uP9BIfqxxQ4gOAlSr-vSxMLq-JLvhk5wZvyWszcW_oxHNkeJeUyqrq97sNsY9DNRVrKH7Np1fBXvY9VzGwF2K-y0g8t-voVGjNvWtukHN4-4smbGygN10FEQg58aaBCgJq7Ak9nHxq0BqIQ16MGXa4DavrriOSy9HKb9CyrNOtSkh3LgAq5ZG1Ut8t0u8TadvFAbi91-oBdcTOGhMSLQZmB0fWcOKVFixQHD_G2lQnPF-VweB2l8"/>
+                            Google
+                        </button>
+<button class="flex items-center justify-center gap-2 py-3 bg-surface-container-low rounded-xl font-medium text-sm text-on-surface hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">ios</span>
+                            Apple
+                        </button>
+</div>
+</form>
+<div class="mt-12 text-center">
+<p class="text-sm text-on-surface-variant">
+                        Don't have an account? 
+                        <a class="text-primary font-bold hover:underline transition-all" href="#">Sign Up</a>
+</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual Footer -->
+<footer class="w-full py-8 px-8 flex flex-col md:flex-row justify-between items-center max-w-screen-2xl mx-auto">
+<div class="mb-4 md:mb-0">
+<span class="font-manrope font-bold text-slate-900">SAATHI</span>
+<span class="font-inter text-xs text-slate-500 ml-4">© 2024 SAATHI Learning Platform. Empowering learners everywhere.</span>
+</div>
+<div class="flex gap-8">
+<a class="font-inter text-xs text-slate-500 hover:text-indigo-500 transition-colors" href="#">Privacy Policy</a>
+<a class="font-inter text-xs text-slate-500 hover:text-indigo-500 transition-colors" href="#">Terms of Service</a>
+<a class="font-inter text-xs text-slate-500 hover:text-indigo-500 transition-colors" href="#">Help Center</a>
+</div>
+</footer>
+</body></html>

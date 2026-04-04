@@ -6,6 +6,7 @@ const {
   verifyRefreshToken,
   buildTokenPayload,
 } = require('../../utils/token');
+const { sendWelcomeEmail } = require('../../services/email.service');
 
 /**
  * Auth Service — pure business logic, no HTTP concerns (req/res).
@@ -45,6 +46,9 @@ const registerUser = async ({ name, email, password, role }) => {
   const tokenPayload = buildTokenPayload(user);
   const accessToken = generateAccessToken(tokenPayload);
   const refreshToken = generateRefreshToken(tokenPayload);
+
+  // Fire-and-forget — don't await, email failure shouldn't block registration
+  sendWelcomeEmail(user.email, user.name);
 
   return {
     user: user.toSafeObject(),

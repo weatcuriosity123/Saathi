@@ -9,11 +9,14 @@ const errorMiddleware = require('./middleware/error.middleware');
 const AppError = require('./utils/AppError');
 
 // ── Route Imports ─────────────────────────────────────────────────────────────
-const authRoutes       = require('./modules/auth/auth.routes');
-const courseRoutes     = require('./modules/course/course.routes');
-const enrollmentRoutes = require('./modules/enrollment/enrollment.routes');
-// Future: const tutorRoutes  = require('./modules/tutor/tutor.routes');
-// Future: const adminRoutes  = require('./modules/admin/admin.routes');
+const authRoutes        = require('./modules/auth/auth.routes');
+const courseRoutes      = require('./modules/course/course.routes');
+const enrollmentRoutes  = require('./modules/enrollment/enrollment.routes');
+const adminRoutes       = require('./modules/admin/admin.routes');
+const progressRoutes    = require('./modules/progress/progress.routes');
+const uploadRoutes      = require('./modules/upload/upload.routes');
+const tutorRoutes       = require('./modules/tutor/tutor.routes');
+const certificateRoutes = require('./modules/certificate/certificate.routes');
 
 const app = express();
 
@@ -63,11 +66,14 @@ app.get('/health', (req, res) => {
 });
 
 // ── API Routes ────────────────────────────────────────────────────────────────
-app.use('/api/v1/auth',        authRoutes);
-app.use('/api/v1/courses',     courseRoutes);
-app.use('/api/v1/enrollments', enrollmentRoutes);
-// app.use('/api/v1/tutors',   tutorRoutes);
-// app.use('/api/v1/admin',    adminRoutes);
+app.use('/api/v1/auth',         authRoutes);
+app.use('/api/v1/courses',      courseRoutes);
+app.use('/api/v1/enrollments',  enrollmentRoutes);
+app.use('/api/v1/admin',        adminRoutes);
+app.use('/api/v1/progress',     progressRoutes);
+app.use('/api/v1/uploads',      uploadRoutes);
+app.use('/api/v1/tutors',       tutorRoutes);
+app.use('/api/v1/certificates', certificateRoutes);
 
 // ── 404 Handler ───────────────────────────────────────────────────────────────
 // Catches any request that didn't match a route above

@@ -8,7 +8,7 @@ const connectDB = async () => {
   const options = {
     // Mongoose 8 handles connection pooling internally.
     // These are the only tuning knobs worth setting explicitly:
-    serverSelectionTimeoutMS: 5000, // fail fast if Atlas is unreachable
+    serverSelectionTimeoutMS: 15000,
     socketTimeoutMS: 45000,
   };
 

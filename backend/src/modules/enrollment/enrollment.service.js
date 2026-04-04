@@ -1,7 +1,9 @@
 const crypto = require('crypto');
 const Course = require('../course/course.model');
 const Enrollment = require('./enrollment.model');
+const User = require('../user/user.model');
 const AppError = require('../../utils/AppError');
+const { sendEnrollmentConfirm } = require('../../services/email.service');
 
 const { ENROLLMENT_STATUS } = require('./enrollment.model');
 const { COURSE_STATUS } = require('../course/course.model');
@@ -81,6 +83,8 @@ const initiateEnrollment = async (userId, courseId) => {
       { upsert: true, new: true }
     );
     await Course.findByIdAndUpdate(courseId, { $inc: { totalStudents: 1 } });
+    const user = await User.findById(userId).select('name email');
+    sendEnrollmentConfirm(user.email, user.name, course.title, course.slug);
     return { enrollment, free: true };
   }
 
@@ -169,6 +173,14 @@ const verifyPayment = async (userId, { razorpayOrderId, razorpayPaymentId, razor
   await enrollment.save();
 
   await Course.findByIdAndUpdate(enrollment.courseId, { $inc: { totalStudents: 1 } });
+
+  const [enrolledUser, enrolledCourse] = await Promise.all([
+    User.findById(userId).select('name email'),
+    Course.findById(enrollment.courseId).select('title slug'),
+  ]);
+  if (enrolledUser && enrolledCourse) {
+    sendEnrollmentConfirm(enrolledUser.email, enrolledUser.name, enrolledCourse.title, enrolledCourse.slug);
+  }
 
   return enrollment;
 };
