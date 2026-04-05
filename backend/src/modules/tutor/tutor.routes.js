@@ -19,6 +19,14 @@ router.patch(
   asyncHandler(tutorController.updateProfile)
 );
 
+// Tutor earnings/recent enrollments
+router.get(
+  '/me/earnings',
+  protect,
+  restrictTo('tutor', 'admin'),
+  asyncHandler(tutorController.getRecentEnrollments)
+);
+
 // Any logged-in user can change their own password
 router.patch(
   '/me/password',

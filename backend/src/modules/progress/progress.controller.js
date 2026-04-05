@@ -25,8 +25,8 @@ const unmarkComplete = async (req, res) => {
 };
 
 const getMyCourses = async (req, res) => {
-  const courses = await progressService.getMyCoursesWithProgress(req.user.id);
-  return respond(res).success({ courses });
+  const data = await progressService.getMyCoursesWithProgress(req.user.id);
+  return respond(res).success(data);
 };
 
 module.exports = { getProgress, markComplete, unmarkComplete, getMyCourses };

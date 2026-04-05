@@ -149,14 +149,24 @@ const getMyCoursesWithProgress = async (userId) => {
 
   return enrollments.map((enrollment) => {
     const course = enrollment.courseId;
-    const progress = progressMap[course?._id?.toString()] || null;
+    const progressDoc = progressMap[course?._id?.toString()] || null;
     return {
       course,
-      enrolledAt: enrollment.enrolledAt,
-      percentage: progress?.percentage || 0,
-      lastModuleId: progress?.lastModuleId || null,
-      completedAt: progress?.completedAt || null,
-      totalPoints: progress?.totalPoints || 0,
+      progress: progressDoc
+        ? {
+            percentage: progressDoc.percentage,
+            lastModuleId: progressDoc.lastModuleId,
+            completedModules: progressDoc.completedModules,
+            totalPoints: progressDoc.totalPoints,
+            completedAt: progressDoc.completedAt,
+          }
+        : {
+            percentage: 0,
+            lastModuleId: null,
+            completedModules: [],
+            totalPoints: 0,
+            completedAt: null,
+          },
     };
   });
 };

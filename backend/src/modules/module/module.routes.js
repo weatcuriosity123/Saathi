@@ -18,6 +18,14 @@ router.get(
   asyncHandler(moduleController.getModules)
 );
 
+// ── Enrolled: full module list for the player sidebar ──────────────────────────
+router.get(
+  '/all',
+  protect,
+  isEnrolled,
+  asyncHandler(moduleController.getModules)
+);
+
 // ── Enrolled student: play a specific module ────────────────────────────────────
 router.get(
   '/:moduleId/player',

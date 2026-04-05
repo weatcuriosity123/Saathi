@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import { AuthProvider } from "@/context/AuthContext";
 
 export const metadata = {
   title: "SAATHI | Affordable Learning for Every Student",
@@ -19,7 +20,9 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="min-h-full bg-surface font-body text-on-surface antialiased">
-        {children}
+        <AuthProvider>
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );

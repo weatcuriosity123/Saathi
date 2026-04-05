@@ -16,4 +16,9 @@ const changePassword = async (req, res) => {
   return respond(res).success(null, 'Password changed. Please log in again with your new password.');
 };
 
-module.exports = { getProfile, updateProfile, changePassword };
+const getRecentEnrollments = async (req, res) => {
+  const data = await tutorService.getRecentEnrollments(req.user.id);
+  return respond(res).success(data);
+};
+
+module.exports = { getProfile, updateProfile, changePassword, getRecentEnrollments };

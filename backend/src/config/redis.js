@@ -14,7 +14,7 @@ const REDIS_OPTIONS = {
 
 const getRedisClient = () => {
   if (redisClient) return redisClient;
-  redisClient = new IORedis(process.env.REDIS_URL || 'redis://localhost:6379', REDIS_OPTIONS);
+  redisClient = new IORedis(process.env.REDIS_URL || 'redis://172.20.201.148:6379', REDIS_OPTIONS);
   redisClient.on('connect', () => console.log('[Redis] Connected'));
   redisClient.on('error', (err) => console.warn('[Redis] Unavailable (certificates disabled):', err.message));
   return redisClient;

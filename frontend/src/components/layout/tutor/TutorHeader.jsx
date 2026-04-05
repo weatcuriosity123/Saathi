@@ -1,8 +1,13 @@
 "use client";
 
-import Link from "next/link";
+import { useAuth } from "@/context/AuthContext";
 
 export default function TutorHeader() {
+  const { user } = useAuth();
+
+  const avatarUrl = user?.avatar
+    || `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(user?.name ?? "T")}&backgroundColor=4f46e5&textColor=ffffff`;
+
   return (
     <header className="fixed top-0 right-0 left-64 bg-surface/70 backdrop-blur-xl z-40 border-none shadow-sm">
       <div className="flex justify-between items-center w-full px-10 py-4 max-w-[1440px] mx-auto">
@@ -25,13 +30,15 @@ export default function TutorHeader() {
 
           <div className="flex items-center gap-3 pl-6 border-l border-outline-variant/30">
             <div className="text-right hidden sm:block">
-              <p className="text-sm font-bold leading-none text-on-surface">Prof. Elena Vance</p>
-              <p className="text-[10px] text-outline font-medium mt-1">Physics & Astronomy</p>
+              <p className="text-sm font-bold leading-none text-on-surface">{user?.name ?? "Tutor"}</p>
+              <p className="text-[10px] text-outline font-medium mt-1">
+                {user?.tutorProfile?.expertise ?? "Tutor"}
+              </p>
             </div>
             <img
               alt="Tutor Profile Avatar"
-              className="w-10 h-10 rounded-full object-cover border-2 border-primary-container/20 group-hover:scale-105 transition-transform"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXYke9Mso0J0hp0o_lFKR1JiISxojDuH8MT3R9lWAobp9kR08mH3eKGr-qyLyHe60QhMSkkI_QLvriDLEjsS1W1T3k9UnRNYqngjBkcVd0vKe5NIUHo8o4T_lNAvW5lcKhHL4ickGwYmrif2hpO2RpSn5OW1fmScey_Bo_VpnzAouRQ_WGkEO9-v0Hk_Y4xfHIzPGtQoO7lKxfRAPn5Fi-0o6j-8tTDKBnHgoqhtu3AGEsITE8iBomD295Mx-ylzOqRYNDkhbEynfV"
+              className="w-10 h-10 rounded-full object-cover border-2 border-primary-container/20"
+              src={avatarUrl}
             />
           </div>
         </div>
