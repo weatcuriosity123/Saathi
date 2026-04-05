@@ -2,10 +2,13 @@
 
 import React from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
 
 const AdminSidebar = () => {
   const pathname = usePathname();
+  const router = useRouter();
+  const { user, logout } = useAuth();
 
   const navItems = [
     { name: "Dashboard Overview", href: "/admin", icon: "dashboard" },
@@ -15,6 +18,15 @@ const AdminSidebar = () => {
     { name: "Activity Monitor", href: "/admin/activity", icon: "analytics" },
     { name: "Settings", href: "/admin/settings", icon: "settings" },
   ];
+
+  const handleLogout = async () => {
+    await logout();
+    router.push("/admin-login");
+  };
+
+  const avatarUrl =
+    user?.avatar ||
+    `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(user?.name ?? "A")}&backgroundColor=3525cd&textColor=ffffff`;
 
   return (
     <aside className="fixed left-0 top-0 h-full flex flex-col z-40 w-72 bg-slate-50 border-r border-slate-200 font-headline text-sm font-medium tracking-tight">
@@ -54,18 +66,28 @@ const AdminSidebar = () => {
         })}
       </nav>
 
-      <div className="p-6">
+      <div className="p-6 space-y-3">
+        {/* Logged-in admin card */}
         <div className="bg-white border border-slate-100 rounded-xl p-4 flex items-center gap-3 shadow-sm">
-          <img 
-            alt="Admin Profile" 
-            className="w-10 h-10 rounded-full object-cover ring-2 ring-primary/5" 
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuClP75_ir55_ZqK3b7PSPzysLjtEAC9mteWbVAjnwIyyMzGVYl7caXrQ5VToUqmUCzKm6HBYjTnI1wp1ihOYeg6yKnQV9SytvrTVQbP-9xgUh5NiZYUvOxoFA-lybRpc70cFPk_tqZG7IBG-Ls4t1QnQdX-DKKL7T4UD4b7UPYlJpIPT6UtzlgtCkYPClsFlx1-5ZMMQXrPB5fDPQKQBy_bu_f-z5xmDaOYb10lmLgzcwo1KXBcmCogoMqKdsuGxrlGuoxz0EUynSMJ" 
+          <img
+            alt="Admin Avatar"
+            className="w-10 h-10 rounded-full object-cover ring-2 ring-primary/10"
+            src={avatarUrl}
           />
-          <div className="overflow-hidden">
-            <p className="text-on-surface font-bold truncate text-sm">Alex Rivera</p>
-            <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Lead Administrator</p>
+          <div className="overflow-hidden flex-1">
+            <p className="text-on-surface font-bold truncate text-sm">{user?.name ?? "Admin"}</p>
+            <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Administrator</p>
           </div>
         </div>
+
+        {/* Logout */}
+        <button
+          onClick={handleLogout}
+          className="w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-slate-500 hover:text-red-500 hover:bg-red-50 transition-colors text-sm font-medium"
+        >
+          <span className="material-symbols-outlined text-lg">logout</span>
+          Sign Out
+        </button>
       </div>
     </aside>
   );

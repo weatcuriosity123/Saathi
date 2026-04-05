@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
 import apiClient from "@/services/apiClient";
 
@@ -314,7 +315,7 @@ export default function AuthForm({ initialView = "login" }) {
           </div>
 
           {/* Google (UI only — OAuth not implemented) */}
-          <div className="w-full mb-2 flex flex-col items-center">
+          <div className="w-full flex flex-col items-center">
             <button
               className="w-full flex items-center justify-center gap-3 py-3.5 bg-surface-container-low border border-outline-variant/30 rounded-xl font-semibold text-sm text-on-surface hover:bg-surface-container-high transition-colors active:scale-95 disabled:opacity-50"
               type="button"
@@ -328,6 +329,31 @@ export default function AuthForm({ initialView = "login" }) {
               Continue with Google
             </button>
           </div>
+
+          {/* Other portals — login view only */}
+          {isLogin && (
+            <div className="pt-1">
+              <p className="text-[10px] font-bold text-outline uppercase tracking-widest text-center mb-3">
+                Other portals
+              </p>
+              <div className="grid grid-cols-2 gap-3">
+                <Link
+                  href="/tutor-login"
+                  className="flex items-center justify-center gap-2 py-3 rounded-xl border border-outline-variant/30 bg-surface-container-low text-on-surface-variant text-xs font-bold hover:bg-surface-container-high transition-colors"
+                >
+                  <span className="material-symbols-outlined text-base">school</span>
+                  Tutor Login
+                </Link>
+                <Link
+                  href="/admin-login"
+                  className="flex items-center justify-center gap-2 py-3 rounded-xl border border-outline-variant/30 bg-surface-container-low text-on-surface-variant text-xs font-bold hover:bg-surface-container-high transition-colors"
+                >
+                  <span className="material-symbols-outlined text-base">admin_panel_settings</span>
+                  Admin Login
+                </Link>
+              </div>
+            </div>
+          )}
         </form>
       </div>
     </div>

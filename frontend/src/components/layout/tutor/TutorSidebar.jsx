@@ -18,7 +18,7 @@ export default function TutorSidebar() {
 
   const handleLogout = async () => {
     await logout();
-    router.push("/auth");
+    router.push("/tutor-login");
   };
 
   return (
