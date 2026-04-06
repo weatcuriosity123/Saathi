@@ -1,7 +1,30 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(node -e ':*)",
+      "Bash(timeout 15 node server.js)",
+      "Bash(node -e \"require\\('dotenv'\\).config\\(\\); const uri = process.env.MONGO_URI || ''; console.log\\('URI set:', !!uri\\); console.log\\('Has placeholder:', uri.includes\\('<user>'\\) || uri.includes\\('cluster.mongodb.net'\\) && !uri.includes\\('@'\\)\\); console.log\\('Starts with mongodb+srv:', uri.startsWith\\('mongodb+srv'\\)\\);\")",
+      "Bash(timeout 20 node server.js)",
+      "Bash(node -e \"require\\('dotenv'\\).config\\(\\); const uri = process.env.MONGO_URI || ''; const masked = uri.replace\\(/:\\\\/\\\\/\\([^:]+\\):\\([^@]+\\)@/, '://<user>:<pass>@'\\); console.log\\('MONGO_URI:', masked\\);\")",
+      "Bash(timeout 25 node server.js)",
+      "Bash(nslookup:*)",
+      "Bash(curl -s --max-time 5 https://api.ipify.org)",
+      "Bash(curl:*)",
+      "Bash(timeout 30 node server.js)",
+      "Bash(node server.js)",
+      "Bash(node -e \"const d=require\\('fs'\\).readFileSync\\('/dev/stdin','utf8'\\);console.log\\(JSON.parse\\(d\\)\\)\")",
+      "Bash(node -e \"const d=require\\('fs'\\).readFileSync\\('/dev/stdin','utf8'\\);const r=JSON.parse\\(d\\);console.log\\('success:',r.success,'| user:',r.data?.user?.email,'| role:',r.data?.user?.role\\);global.token=r.data?.accessToken\")",
+      "Bash(2>&1)",
+      "Bash(taskkill /F /IM node.exe)",
+      "Bash(taskkill //F //IM node.exe)",
+      "Bash(node smoke-test.js)",
+      "Bash(node seed-admin.js)",
+      "Bash(pkill -f \"node server.js\")",
+      "Bash(npx kill-port:*)",
+      "Bash(node test-services.js)",
+      "Bash(xargs cat:*)",
+      "Bash(node src/script/seed.js)"
     ]
   }
 }

@@ -1,8 +1,10 @@
 "use client";
 
-import React from "react";
+import { useAuth } from "@/context/AuthContext";
 
 const AdminTopBar = () => {
+  const { user } = useAuth();
+
   return (
     <header className="fixed top-0 right-0 w-[calc(100%-18rem)] flex justify-between items-center px-10 py-5 z-30 bg-white/80 backdrop-blur-xl border-b border-slate-100 transition-all duration-300">
       <div className="flex items-center bg-slate-50 border border-slate-100 rounded-full px-5 py-2.5 w-96 group focus-within:ring-2 ring-primary/20 transition-all">
@@ -23,6 +25,14 @@ const AdminTopBar = () => {
           <span className="text-xs font-black text-green-700 uppercase tracking-widest font-label">System Online</span>
           <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.5)]"></div>
         </div>
+        {user?.name && (
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-full bg-primary/10 text-primary font-black text-sm flex items-center justify-center">
+              {user.name.charAt(0).toUpperCase()}
+            </div>
+            <span className="text-sm font-bold text-on-surface hidden lg:block">{user.name}</span>
+          </div>
+        )}
       </div>
     </header>
   );

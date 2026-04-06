@@ -1,161 +1,245 @@
-const COURSES = [
-  {
-    id: 1,
-    title: "Mastering Modern Fullstack with React & Node",
-    category: "Web Development",
-    rating: "4.9",
-    description: "Build production-ready applications with the modern MERN ecosystem and TypeScript.",
-    instructor: "Arjun Sharma",
-    instructorImage: "https://api.dicebear.com/7.x/avataaars/svg?seed=Arjun%20Sharma",
-    price: "149",
-    image: "https://images.unsplash.com/photo-1541462608141-ad4d1f995502?q=80&w=800&auto=format&fit=crop",
-    badge: "Bestseller",
-  },
-  {
-    id: 2,
-    title: "Visual Storytelling & Design Systems",
-    category: "Design",
-    rating: "4.8",
-    description: "Master the craft of building scalable design systems and engaging visual narratives.",
-    instructor: "Priya Verma",
-    instructorImage: "https://api.dicebear.com/7.x/avataaars/svg?seed=Priya%20Verma",
-    price: "199",
-    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=800&auto=format&fit=crop",
-    badge: "New",
-  },
-  {
-    id: 3,
-    title: "Data-Driven Marketing & Growth",
-    category: "Business",
-    rating: "4.7",
-    description: "Scale your products using advanced analytics and consumer behavioral psychology.",
-    instructor: "Rohan Malhotra",
-    instructorImage: "https://api.dicebear.com/7.x/avataaars/svg?seed=Rohan%20Malhotra",
-    price: "120",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    id: 4,
-    title: "Ethical Hacking & Network Security",
-    category: "IT & Software",
-    rating: "4.9",
-    description: "Learn to protect digital infrastructure from evolving global cyber threats.",
-    instructor: "Sanjay Kapur",
-    instructorImage: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sanjay%20Kapur",
-    price: "175",
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    id: 5,
-    title: "Python for Data Analysis & AI",
-    category: "Data Science",
-    rating: "4.6",
-    description: "Master NumPy, Pandas, and Scikit-learn for building intelligent data models.",
-    instructor: "Ananya Ghosh",
-    instructorImage: "https://api.dicebear.com/7.x/avataaars/svg?seed=Ananya%20Ghosh",
-    price: "110",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    id: 6,
-    title: "Digital Illustration: From Sketch to Final",
-    category: "Creative Arts",
-    rating: "5.0",
-    description: "A professional masterclass in digital painting techniques using Procreate.",
-    instructor: "Vikram Singh",
-    instructorImage: "https://api.dicebear.com/7.x/avataaars/svg?seed=Vikram%20Singh",
-    price: "185",
-    image: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=800&auto=format&fit=crop",
-    badge: "Bestseller",
-  },
-];
+import Link from "next/link";
+import { formatPrice, formatRating, avatarUrl, FALLBACK_THUMBNAIL } from "@/utils/formatters";
 
-export default function CourseGrid() {
+/** Skeleton card shown while loading */
+function CourseCardSkeleton() {
   return (
-    <section className="flex-1">
-      <div className="flex flex-col md:flex-row md:justify-between md:items-baseline gap-4 mb-12">
-        <div>
-          <h1 className="font-headline text-4xl font-black tracking-tight text-slate-900">Explore Courses</h1>
-          <p className="text-slate-500 mt-2 font-medium">48 premium courses curated for your career path.</p>
-        </div>
-        <div className="flex items-center gap-2 text-sm font-bold text-slate-600 cursor-pointer hover:text-primary transition-colors">
-          <span>Sort by: <span className="text-primary">Popularity</span></span>
-          <span className="material-symbols-outlined text-[18px]">expand_more</span>
+    <div className="bg-white rounded-2xl overflow-hidden border border-outline-variant animate-pulse flex flex-col">
+      <div className="h-48 bg-surface-container-high" />
+      <div className="p-6 flex flex-col gap-3 flex-1">
+        <div className="h-3 w-24 bg-surface-container-high rounded-full" />
+        <div className="h-5 w-full bg-surface-container-high rounded-full" />
+        <div className="h-5 w-3/4 bg-surface-container-high rounded-full" />
+        <div className="h-3 w-full bg-surface-container-high rounded-full mt-1" />
+        <div className="mt-auto pt-4 border-t border-outline-variant/10 flex justify-between">
+          <div className="h-6 w-16 bg-surface-container-high rounded-full" />
+          <div className="h-6 w-6 bg-surface-container-high rounded-full" />
         </div>
       </div>
+    </div>
+  );
+}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {COURSES.map((course) => (
-          <div key={course.id} className="group bg-white rounded-2xl overflow-hidden transition-all duration-300 shadow-soft hover:shadow-ambient flex flex-col border border-outline-variant">
-            <div className="relative h-48 overflow-hidden">
-              <img 
-                src={course.image} 
-                alt={course.title} 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 bg-surface-container" 
-              />
-              {course.badge && (
-                <div className={`absolute top-4 left-4 text-white text-[10px] font-black px-3 py-1 rounded-lg uppercase tracking-wider shadow-sm ${
-                  course.badge === 'Bestseller' ? 'bg-emerald-500' : 'bg-primary'
-                }`}>
-                  {course.badge}
-                </div>
+/** Single course card */
+function CourseCard({ course }) {
+  const thumbnail = course.thumbnail || FALLBACK_THUMBNAIL;
+  const rating = course.rating?.average ?? null;
+  const ratingCount = course.rating?.count ?? 0;
+  // tutorId is not populated in the listing — show category as secondary info instead
+  const categoryLabel = course.category?.replace(/-/g, " ") ?? "";
+
+  return (
+    <Link href={`/${course._id}`} className="group bg-white rounded-2xl overflow-hidden transition-all duration-300 shadow-soft hover:shadow-ambient flex flex-col border border-outline-variant">
+      {/* Thumbnail */}
+      <div className="relative h-48 overflow-hidden">
+        <img
+          src={thumbnail}
+          alt={course.title}
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 bg-surface-container"
+        />
+        {course.level && (
+          <div className="absolute top-4 left-4 text-white text-[10px] font-black px-3 py-1 rounded-lg uppercase tracking-wider shadow-sm bg-primary/80 backdrop-blur-sm">
+            {course.level}
+          </div>
+        )}
+        {course.price === 0 && (
+          <div className="absolute top-4 right-4 text-white text-[10px] font-black px-3 py-1 rounded-lg uppercase tracking-wider shadow-sm bg-secondary">
+            Free
+          </div>
+        )}
+      </div>
+
+      {/* Body */}
+      <div className="p-6 flex flex-col flex-1">
+        <div className="flex justify-between items-center mb-3">
+          <span className="text-[11px] font-extrabold text-primary tracking-widest uppercase truncate capitalize">
+            {categoryLabel}
+          </span>
+          {rating !== null && (
+            <div className="flex items-center text-tertiary flex-shrink-0">
+              <span
+                className="material-symbols-outlined text-[14px]"
+                style={{ fontVariationSettings: "'FILL' 1" }}
+              >
+                star
+              </span>
+              <span className="text-xs font-bold ml-1 text-slate-900">{formatRating(rating)}</span>
+              {ratingCount > 0 && (
+                <span className="text-[10px] text-slate-400 ml-1">({ratingCount})</span>
               )}
             </div>
+          )}
+        </div>
 
-            <div className="p-6 flex flex-col flex-1">
-              <div className="flex justify-between items-center mb-3">
-                <span className="text-[11px] font-extrabold text-primary tracking-widest uppercase truncate">{course.category}</span>
-                <div className="flex items-center text-tertiary">
-                  <span className="material-symbols-outlined text-[14px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-                  <span className="text-xs font-bold ml-1 text-slate-900">{course.rating}</span>
-                </div>
-              </div>
+        <h3 className="font-headline font-extrabold text-[18px] leading-snug mb-3 text-on-surface group-hover:text-primary transition-colors line-clamp-2">
+          {course.title}
+        </h3>
 
-              <h3 className="font-headline font-extrabold text-[18px] leading-snug mb-3 text-on-surface group-hover:text-primary transition-colors line-clamp-2">
-                {course.title}
-              </h3>
-              
-              <p className="text-[13px] text-on-surface-variant mb-6 line-clamp-2 leading-relaxed">
-                {course.description}
-              </p>
+        {course.shortDescription || course.description ? (
+          <p className="text-[13px] text-on-surface-variant mb-4 line-clamp-2 leading-relaxed">
+            {course.shortDescription || course.description}
+          </p>
+        ) : null}
 
-              <div className="mt-auto">
-                <div className="flex items-center gap-2 mb-6">
-                  <div className="w-7 h-7 rounded-full bg-slate-100 overflow-hidden ring-2 ring-white">
-                    <img 
-                      src={course.instructorImage} 
-                      alt={course.instructor} 
-                      className="w-full h-full object-cover" 
-                    />
-                  </div>
-                  <span className="text-xs font-bold text-slate-700">{course.instructor}</span>
-                </div>
+        {/* Meta row */}
+        <div className="flex items-center gap-3 text-xs text-on-surface-variant mt-auto mb-4">
+          {course.totalModules > 0 && (
+            <span className="flex items-center gap-1">
+              <span className="material-symbols-outlined text-[14px]">video_library</span>
+              {course.totalModules} modules
+            </span>
+          )}
+          {course.totalStudents > 0 && (
+            <span className="flex items-center gap-1">
+              <span className="material-symbols-outlined text-[14px]">group</span>
+              {course.totalStudents.toLocaleString()}
+            </span>
+          )}
+        </div>
 
-                <div className="flex justify-between items-center pt-4 border-t border-slate-50">
-                  <span className="text-2xl font-black text-slate-900 font-headline tracking-tight">₹{course.price}</span>
-                  <button className="material-symbols-outlined text-outline hover:text-primary transition-colors p-1">
-                    bookmark
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
+        <div className="flex justify-between items-center pt-4 border-t border-slate-50">
+          <span className="text-2xl font-black text-slate-900 font-headline tracking-tight">
+            {formatPrice(course.price)}
+          </span>
+          <span className="material-symbols-outlined text-outline hover:text-primary transition-colors p-1">
+            bookmark
+          </span>
+        </div>
+      </div>
+    </Link>
+  );
+}
+
+/** Pagination controls */
+function Pagination({ pagination, onPageChange }) {
+  if (!pagination || pagination.totalPages <= 1) return null;
+  const { page, totalPages } = pagination;
+
+  const pages = [];
+  // Show at most 5 page buttons
+  let start = Math.max(1, page - 2);
+  let end = Math.min(totalPages, start + 4);
+  if (end - start < 4) start = Math.max(1, end - 4);
+
+  for (let i = start; i <= end; i++) pages.push(i);
+
+  return (
+    <div className="mt-20 flex justify-center items-center gap-2">
+      <button
+        onClick={() => onPageChange(page - 1)}
+        disabled={page === 1}
+        className="w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-slate-100 text-slate-500 hover:text-primary hover:border-primary/30 transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+      >
+        <span className="material-symbols-outlined text-[20px]">chevron_left</span>
+      </button>
+
+      {start > 1 && (
+        <>
+          <button
+            onClick={() => onPageChange(1)}
+            className="w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-slate-100 text-slate-600 font-bold hover:bg-slate-50 transition-all"
+          >
+            1
+          </button>
+          {start > 2 && <span className="px-2 text-slate-400 font-bold">…</span>}
+        </>
+      )}
+
+      {pages.map((p) => (
+        <button
+          key={p}
+          onClick={() => onPageChange(p)}
+          className={`w-10 h-10 flex items-center justify-center rounded-xl font-bold transition-all ${
+            p === page
+              ? "bg-primary text-white shadow-lg shadow-primary/20"
+              : "bg-white border border-slate-100 text-slate-600 hover:bg-slate-50"
+          }`}
+        >
+          {p}
+        </button>
+      ))}
+
+      {end < totalPages && (
+        <>
+          {end < totalPages - 1 && <span className="px-2 text-slate-400 font-bold">…</span>}
+          <button
+            onClick={() => onPageChange(totalPages)}
+            className="w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-slate-100 text-slate-600 font-bold hover:bg-slate-50 transition-all"
+          >
+            {totalPages}
+          </button>
+        </>
+      )}
+
+      <button
+        onClick={() => onPageChange(page + 1)}
+        disabled={page === totalPages}
+        className="w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-slate-100 text-slate-500 hover:text-primary hover:border-primary/30 transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+      >
+        <span className="material-symbols-outlined text-[20px]">chevron_right</span>
+      </button>
+    </div>
+  );
+}
+
+/**
+ * CourseGrid
+ * @param {{ courses, pagination, loading, error, onPageChange }} props
+ */
+export default function CourseGrid({ courses = [], pagination, loading, error, onPageChange }) {
+  const total = pagination?.total ?? 0;
+
+  return (
+    <section className="flex-1">
+      {/* Header */}
+      <div className="flex flex-col md:flex-row md:justify-between md:items-baseline gap-4 mb-12">
+        <div>
+          <h1 className="font-headline text-4xl font-black tracking-tight text-slate-900">
+            Explore Courses
+          </h1>
+          <p className="text-slate-500 mt-2 font-medium">
+            {loading
+              ? "Loading courses…"
+              : error
+              ? "Could not load courses."
+              : `${total} course${total !== 1 ? "s" : ""} available`}
+          </p>
+        </div>
       </div>
 
-      <div className="mt-20 flex justify-center items-center gap-2">
-        <button className="w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-slate-100 text-slate-500 hover:text-primary hover:border-primary/30 transition-all">
-          <span className="material-symbols-outlined text-[20px]">chevron_left</span>
-        </button>
-        <button className="w-10 h-10 flex items-center justify-center rounded-xl bg-primary text-white font-black shadow-lg shadow-primary/20">1</button>
-        <button className="w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-slate-100 text-slate-600 font-bold hover:bg-slate-50 transition-all">2</button>
-        <button className="w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-slate-100 text-slate-600 font-bold hover:bg-slate-50 transition-all">3</button>
-        <span className="px-3 text-slate-400 font-bold">...</span>
-        <button className="w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-slate-100 text-slate-600 font-bold hover:bg-slate-50 transition-all">12</button>
-        <button className="w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-slate-100 text-slate-500 hover:text-primary hover:border-primary/30 transition-all">
-          <span className="material-symbols-outlined text-[20px]">chevron_right</span>
-        </button>
-      </div>
+      {/* Error state */}
+      {error && !loading && (
+        <div className="py-20 text-center text-error font-medium">{error}</div>
+      )}
+
+      {/* Grid */}
+      {loading ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <CourseCardSkeleton key={i} />
+          ))}
+        </div>
+      ) : !error && courses.length === 0 ? (
+        <div className="py-20 text-center">
+          <span className="material-symbols-outlined text-6xl text-outline mb-4 block">
+            search_off
+          </span>
+          <p className="text-on-surface-variant font-medium">
+            No courses match your filters. Try adjusting or clearing them.
+          </p>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {courses.map((course) => (
+            <CourseCard key={course._id} course={course} />
+          ))}
+        </div>
+      )}
+
+      {/* Pagination */}
+      {!loading && !error && (
+        <Pagination pagination={pagination} onPageChange={onPageChange} />
+      )}
     </section>
   );
 }

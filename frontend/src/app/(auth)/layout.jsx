@@ -1,3 +1,7 @@
 export default function AuthLayout({ children }) {
-  return <div className="mx-auto w-full max-w-xl px-4 py-10">{children}</div>;
+  return (
+    <div className="flex-grow flex items-center justify-center p-6 md:p-12 w-full">
+      {children}
+    </div>
+  );
 }
